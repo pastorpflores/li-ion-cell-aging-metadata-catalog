@@ -1,0 +1,213 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Data-driven capacity estimation of commercial lithium-ion batteries from voltage relaxation",
+    "short_name": "2022_Tongji-KIT",
+    "year": 2022,
+    "paper_url": "https://www.nature.com/articles/s41467-022-29837-w",
+    "data_url": "https://zenodo.org/records/6405084",
+    "license": "CC-BY-4.0",
+    "institution": "Tongji University, Karlsruhe Institute of Technology (KIT)",
+    "country": "DE",
+    "authors": [
+      "Jiangong Zhu",
+      "Yixiu Wang",
+      "Yuan Huang",
+      "R. Bhushan Gopaluni",
+      "Yankai Cao",
+      "Michael Heere",
+      "Martin J. Mühlbauer",
+      "Liuda Mereacre",
+      "Haifeng Dai",
+      "Xinhua Liu",
+      "Anatoliy Senyshyn",
+      "Xuezhe Wei",
+      "Michael Knapp",
+      "Helmut Ehrenberg"
+    ],
+    "contact_email": "tongjidai@tongji.edu.cn",
+    "citation": "Zhu, J. et al. Data-driven capacity estimation of commercial lithium-ion batteries from voltage relaxation. Nat. Commun. 13, 2261 (2022). https://doi.org/10.1038/s41467-022-29837-w",
+    "funding": "Alexander von Humboldt Postdoctoral Research Program; National Natural Science Foundation of China (NSFC) Grant No. 52107230; NSFC Grant No. U20A20310; Fundamental Research Funds for the Central Universities; CELEST (Center for Electrochemical Energy Storage Ulm-Karlsruhe)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "INR18650-35E",
+      "manufacturer": "Samsung_SDI",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.5,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Dataset 1. Cathode LiNi0.86Co0.11Al0.03O2, anode ~97 wt% C + ~2 wt% Si. Cutoff voltage 2.65-4.2 V. 1C = 3.5 A. 66 cells tested at 25/35/45 °C with charge rates 0.25C-1C and 1C discharge."
+    },
+    {
+      "commercial_name": "INR18650-MJ1",
+      "manufacturer": "LG_Chem",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.5,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Dataset 2. Cathode LiNi0.83Co0.11Mn0.07O2, anode ~97 wt% C + ~2 wt% Si. Cutoff voltage 2.5-4.2 V. 1C = 3.5 A. 55 cells tested at 25/35/45 °C with charge rates 0.5C and 1C discharge."
+    },
+    {
+      "commercial_name": "INR18650-25R",
+      "manufacturer": "Samsung_SDI",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC_NCA",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 2.5,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Dataset 3. Cathode blend of 42(3) wt% Li(NiCoMn)O2 + 58(3) wt% Li(NiCoAl)O2, anode graphite. Cutoff voltage 2.5-4.2 V. 1C = 2.5 A. 9 cells tested at 25 °C with charge rate 0.5C and discharge rates 1C/2C/4C."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "discharge",
+      "study_design": "partial_factorial",
+      "num_cell_types": 3,
+      "num_cells_total": 130,
+      "replicate_cells_min": 3,
+      "replicate_cells_max": 28,
+      "num_unique_conditions": 11,
+      "eol_criteria": "capacity_custom",
+      "eol_threshold_pct": 71,
+      "notes": "Three sub-datasets: Dataset 1 (NCA, 66 cells), Dataset 2 (NCM, 55 cells), Dataset 3 (NCM+NCA, 9 cells). Discharge rate is constant at 1C for Datasets 1 and 2; for Dataset 3 it varies (1C, 2C, 4C). NCA and NCM cells tested 2016–2018; NCM+NCA cells tested in 2020."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.65-4.2",
+        "2.5-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "discharge_crates": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "cv_cutoff_current_c": [
+        0.05
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25,
+        35,
+        45
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 1500,
+      "rest_between_halfcycles_min": [
+        30,
+        60
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": true,
+      "test_equipment": "BioLogic BCS-815",
+      "notes": "Relaxation rest after CV charge before discharge: 30 min for NCA and NCM batteries (real sampling time 120 s); 60 min for NCM+NCA battery (sampling time 30 s). Total cycles vary widely by condition: 50–800 (NCA), up to ~1500 (NCM), 750–850 (NCM+NCA)."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 1.56,
+      "data_quality_notes": "Each CSV has 9 columns: time/s, control/V/mA, Ecell/V, <I>/mA, Q charge/mAh, Q discharge/mAh, control/V, control/mA, cycle number.",
+      "known_issues": "Different experimenters at different test periods responsible for differences in battery connection methods and EIS experimental parameters (perturbation modes, amplitudes, OCV wait times) between NCA/NCM (2016–2018) and NCM+NCA (2020) cells."
+    },
+    "checkup": {
+      "types": [
+        "eis"
+      ],
+      "recorded_variables": [
+        "impedance_ac",
+        "eis_nyquist"
+      ],
+      "interval": {
+        "value": 25,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [],
+      "soc_levels_pct": [
+        100
+      ],
+      "notes": "EIS measured at full charge (100% SOC). NCA cells: every 25 cycles, frequency 10 kHz–50 mHz, 20 points per decade, potential amplitude 20 mV, 30 min OCV rest before test. NCM cells: every 50 cycles, same frequency range and amplitude, 30 min OCV rest. NCM+NCA cells: every 50 cycles, frequency 10 kHz–0.01 Hz, 6 points per decade, sinusoidal amplitude 250 mA, 60 min OCV rest. Impedance raw data and fitting data available as separate Zenodo archive."
+    }
+  },
+  "notes": "The dataset contains cycling data for three types of commercial 18650 cells used to develop a data-driven capacity estimation approach based on voltage relaxation features after full charge. The Zenodo repository contains four zip files: Dataset_1_NCA_battery.zip (~553 MB), Dataset_2_NCM_battery.zip (~703 MB), Dataset_3_NCM_NCA_battery.zip (~340 MB), and Impedance raw data and fitting data.zip (~1.3 MB). Cells are labeled CYX-Y/Z where X=temperature, Y=charge C-rate, Z=discharge C-rate. 1C = 3.5 A for NCA and NCM cells; 1C = 2.5 A for NCM+NCA cells. The relaxation voltage curve after full charge is the primary feature source; six statistical features (Var, Ske, Max, Min, Mean, Kur) are extracted per cycle."
+}

@@ -1,0 +1,160 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "RWTH Aachen Calendaric Aging of NCA/Si-C 18650 (Samsung INR18650-35E) over 5 Years",
+    "short_name": "2024_RWTH_Cal_35E_18650",
+    "year": 2024,
+    "paper_url": "https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.202400020",
+    "data_url": "https://publications.rwth-aachen.de/record/973674",
+    "license": "CC-BY-4.0",
+    "institution": "RWTH Aachen University, Institute for Power Electronics and Electrical Drives (ISEA)",
+    "country": "DE",
+    "authors": [
+      "Fabian Frie",
+      "Heinrich Ditler",
+      "Sebastian Klick",
+      "Gereon Stahl",
+      "Christiane Rahe",
+      "Tala Ghaddar",
+      "Dirk Uwe Sauer"
+    ],
+    "contact_email": "fabian.frie@isea.rwth-aachen.de",
+    "citation": "Frie, F., Ditler, H., Klick, S., Stahl, G., Rahe, C., Ghaddar, T., Sauer, D. U. (2024). An Analysis of Calendaric Aging over 5 Years of Ni-Rich 18650-Cells with Si/C Anodes. ChemElectroChem, 11, e202400020. https://doi.org/10.1002/celc.202400020",
+    "funding": "German Federal Ministry of Education and Research, projects Meet Hi-EnD II (03XP0084B) and Meet Hi-EnD III (03XP0258C); research training group mobilEM (GRK 1856/1, 1856/2); BaLD project (03XP0320A)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "Samsung INR18650-35E",
+      "manufacturer": "Samsung_SDI",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.35,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 50.0,
+      "dimensions_mm": {
+        "diameter": 18.55,
+        "length": 65.25,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "NCA cathode with Ni:Co:Al ratio 8:1:<0.1 and ~3 wt% silicon content in the graphite-silicon anode. Nominal capacity normalized to 3.4 Ah in the publication. Cells bought in March 2018. Initial internal impedance <= 35 mOhm. Max charge current 2.00 A; max discharge current 8.00 A continuous. Charge voltage 4.20 V; discharge cut-off 2.65 V."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "calendar"
+      ],
+      "constant_halfcycle": "not_applicable",
+      "study_design": "full_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 69,
+      "replicate_cells_min": 2,
+      "replicate_cells_max": 3,
+      "num_unique_conditions": 20,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "69 cells stored at 5 floating voltage levels (U1–U5) and 4 temperatures (35, 40, 45, 50 °C) in a full-factorial design. Voltage levels correspond to 5 SoC levels at test start: U1=4.054 V (~80% SoC), U2=3.870 V (~59% SoC), U3=3.711 V (~45% SoC), U4=3.510 V (~28% SoC), U5=3.474 V (~25% SoC). Cells held at constant floating voltage (not constant SoC); SoC drifts over time. Number of cells per condition ranges from 2 to 3. EOL RPT protocol applied when cells fail the standard pulse test due to resistance increase."
+    },
+    "electrical": {
+      "cycling_range_basis": "",
+      "cycling_ranges": [],
+      "storage_level_basis": "voltage",
+      "storage_levels": [
+        3.474,
+        3.51,
+        3.711,
+        3.87,
+        4.054
+      ],
+      "dod_pct": [],
+      "charge_crates": ["N/A"],
+      "discharge_crates": ["N/A"],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [],
+      "discharge_protocol": [],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [],
+      "temperature_storage_c": [
+        35,
+        40,
+        45,
+        50
+      ],
+      "temperature_range_c": [],
+      "ambient_control": "convection_oven",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 60,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Digatron MCT 10-06-12ME; Binder MK53 temperature chambers; HAMEG source meters; custom measuring PCB (4-point measurement)",
+      "notes": "Cells stored continuously at fixed floating voltage in ovens. RPT interval set to 2 months initially, increased to 3 months after 13th RPT (~2 years), then reduced back to 2 months after 19th RPT (~1.5 years later). Total test duration approximately 5 years (~60 months). Up to ~25 RPTs per cell."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge",
+        "energy_charge",
+        "energy_discharge"
+      ],
+      "file_formats": [
+        "csv",
+        "mat"
+      ],
+      "data_structure": "single_file_per_cycle",
+      "data_size_gb": null,
+      "data_quality_notes": "Each RPT has its own file named with a structured scheme (project, specimen, connection, testset, date, test, unique ID, equipment). CSV files use '.' for decimals and ',' as separator with two header rows (column names in German + units). Time format: yyyy-MM-dd HH:mm:ss.SS. Channel names were renamed after lab relocation (e.g., 'Kreis JS 1-097' = 'Kreis 11-097'). Data available as zipped CSV and MATLAB .mat files.",
+      "known_issues": "Lab relocation in July 2022 caused an interruption (~3.5 weeks at ambient OCV); not all cells completed RPT #19. Some cells at U1 and U3/U4 at 40 °C show data artifacts (possible wrong channel assignment). One cell (Cell G, U2, 45 °C) experienced sudden-death failure at RPT #17 with internal short."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "resistance_pulse",
+        "pseudo_ocv",
+        "dva"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "ocv_curve",
+        "dq_dv"
+      ],
+      "interval": {
+        "value": 2,
+        "unit": "months"
+      },
+      "temperature_c": [
+        23
+      ],
+      "charge_crates": [
+        0.5,
+        0.1
+      ],
+      "soc_levels_pct": [
+        70,
+        50
+      ],
+      "notes": "RPT performed in a Binder temperature chamber at 23 °C. Sequence: (1) discharge to 2.65 V; (2) 10 min rest; (3) CC-CV charge at 0.5C (1.7 A) to 4.20 V, CV until I<0.02C (max 180 min); (4) 30 min rest; (5) 0.5C discharge to 2.65 V (capacity determination); (6) 10 min rest; (7) charge + 30 min rest; (8) quasi-OCV at 0.1C (discharge to 2.65 V and charge to 4.20 V); (9) pulse test at two SoC levels (residual charge 2.6 Ah and 2.1 Ah) using three pulses at 1.7 A, 3.4 A, and 6.8 A (20 s each, charge and discharge directions) with 10 min rest between pulses. Pulse resistance extracted after 2 s from 2C charging pulses at 50% SoC. EOL-RPT omits the higher-SoC pulse stage and reduces qOCV rate to 0.05C. RPT interval was 2 months initially, 3 months from RPT 13 onward, then 2 months again after RPT 19."
+    }
+  },
+  "notes": "Long-term calendaric aging study of Samsung INR18650-35E (NCA/Si-C) cells over 5 years. 69 cells stored at 5 floating voltage levels and 4 temperatures in a full-factorial design. Data published under DOI 10.18154/RWTH-2023-10931. The publication normalizes capacity to 3.4 Ah. Key findings: storage voltage level is the dominant aging driver; temperature influence is modest; aging follows a linear trend after an initial break-in period (~250 days); loss of lithium inventory (LLI) is the main aging mechanism; cathode active material loss detected at highest voltage levels (U1, U2). Post-mortem analyses (SEM/EDX, coin cell cycling) included. Data available from RWTH Aachen publication server (DOI: 10.18154/RWTH-2023-10931)."
+}

@@ -1,0 +1,173 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Dynamic cycling enhances battery lifetime",
+    "short_name": "2024_STAN_Dynamic_cyc",
+    "year": 2024,
+    "paper_url": "https://www.nature.com/articles/s41560-024-01675-8",
+    "data_url": "https://doi.org/10.25740/td676xr4322",
+    "license": "CC-BY-NC-4.0",
+    "institution": "Stanford University / SLAC National Accelerator Laboratory",
+    "country": "US",
+    "authors": [
+      "Alexis Geslin",
+      "Le Xu",
+      "Devi Ganapathi",
+      "Kevin Moy",
+      "William C. Chueh",
+      "Simona Onori"
+    ],
+    "contact_email": "wchueh@stanford.edu",
+    "citation": "Geslin, A., Xu, L., Ganapathi, D. et al. Dynamic cycling enhances battery lifetime. Nat Energy (2024). https://doi.org/10.1038/s41560-024-01675-8",
+    "funding": "National Science Foundation Graduate Research Fellowship Program (grant no. DGE-1656518); Stanford Chevron Fellowship in Energy"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "cylindrical",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": "unknown",
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Commercial EV energy cells described as silicon oxide-graphite / nickel cobalt aluminium lithium-ion. Cylindrical form factor confirmed by use of four-point contact cylindrical cell fixtures (Maccor Series 4000). Specific cell size (18650/21700) and nominal capacity are not disclosed; all data is normalized by cell nominal capacity. Voltage window 3.1-4.2 V (charge CC-CV C/2 to 4.2 V, 0.05C cutoff). 92 cells tested across 47 protocols over 24 months at 35 degC."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_drive_cycle",
+        "cycling_variable",
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 92,
+      "replicate_cells_min": 2,
+      "replicate_cells_max": 2,
+      "num_unique_conditions": 47,
+      "eol_criteria": "capacity_custom",
+      "eol_threshold_pct": 85,
+      "notes": "Four discharge protocol types: (1) constant current (with/without rest at 5%, 50%, or 100% SOC), (2) periodic duty cycles with regenerative braking pulses, (3) synthetic profiles derived from real driving field data (highway, urban, combined), (4) real driving profiles from two cities. All cells charged identically: CC-CV C/2 to 4.2 V, 0.05C cutoff. Average discharge C-rates: C/16, C/10, C/5, C/2. Each of the 47 protocols was duplicated; 2 cell failures occurred. EoL defined as 85% SOH based on C/2 RPT discharge capacity."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.1-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.5
+      ],
+      "discharge_crates": [
+        0.0625,
+        0.1,
+        0.2,
+        0.5
+      ],
+      "cv_cutoff_current_c": [
+        0.05
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "drive_cycle",
+        "variable_load",
+        "pulsed"
+      ],
+      "drive_cycle_profiles": [
+        "custom_recorded",
+        "custom_synthetic"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        35
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 24,
+      "total_cycles_approx": 1600,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Maccor Series 4000 battery cycler; CSZ temperature chamber model ZPS-16-2-H/AC",
+      "notes": "Experiments conducted for over 2 years at SLAC-Stanford Battery Center. Most discharge profiles did not include significant rest periods. Constant current protocols with rest used 6 h rest periods at 5%, 50%, or 100% SOC. Maximum observed EFCs at 85% SOH approximately 1600."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "current",
+        "voltage",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "pkl",
+        "json",
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "Raw data contains Time, normalized current (C-rate), Voltage, and normalized capacity. Cycle number, Step, State, Full Step #, and Loop3 fields allow identification of subparts of each cycle. Aging summary files contain charge/discharge capacity and cumulative capacity throughput per cycle. Diagnostic capacities stored in a single multi-index dataframe (diagnostic_capacities.pkl). All capacities are normalized by nominal cell capacity.",
+      "known_issues": "Due to data acquisition limitations, Ohmic resistance was calculated 0.03 s after pulse start (R0.03s). Two cell failures encountered. Four C/16 real driving profiles did not reach lower cutoff voltage and were excluded from analyses but retained in dataset. Highway-based synthetic duty cycles 1a and 1b (C/2 average) and synthetic duty cycle 3 (C/2 average) were excluded due to hardware current limits."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "hppc",
+        "resistance_pulse",
+        "ocv_curve",
+        "dva"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "impedance_ac",
+        "dq_dv"
+      ],
+      "interval": {
+        "value": 100,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        35
+      ],
+      "charge_crates": [
+        0.333,
+        0.025,
+        0.5
+      ],
+      "soc_levels_pct": [
+        50
+      ],
+      "notes": "Diagnostic cycles applied at cycle 0, then after 25, 50, 75, and 100 aging cycles, then every 100 cycles thereafter. Full diagnostic sequence: C/3 reset cycle, voltage-based pulse routine, HPPC routine (separated by another C/3 reset cycle), C/40 RPT, C/2 RPT. RPT voltage range 2.8-4.2 V. Resistances extracted from HPPC at 50% SOC during discharge pulse: R0.03s (Ohmic), R3s (charge-transfer), R10s (polarization). Electrode-specific capacities (Qne, Qpe, QLi) fitted from C/40 RPT using half-cell differential voltage model."
+    }
+  },
+  "notes": "This dataset investigates the effect of dynamic vs. constant current discharge profiles on lithium-ion battery aging under non-accelerated, realistic EV-representative conditions. Key finding: dynamic discharge enhances battery lifetime by up to 38% in EFCs at EoL compared to constant current discharge. Explainable ML (XGBoost + SHAP) identified low-frequency discharge current pulses (~8.2 mHz average) and rest fraction at high SOC as key drivers of degradation differences. The paper was published in Nature Energy, Volume 10, February 2025, pp. 172-180. The article is licensed under CC BY-NC-ND 4.0."
+}

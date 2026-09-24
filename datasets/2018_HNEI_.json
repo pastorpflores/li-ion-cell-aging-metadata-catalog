@@ -1,0 +1,151 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Intrinsic Variability in the Degradation of a Batch of Commercial 18650 Lithium-Ion Cells",
+    "short_name": "2018_HNEI",
+    "year": 2018,
+    "paper_url": "https://www.mdpi.com/1996-1073/11/5/1031",
+    "data_url": "https://www.batteryarchive.org/study_summaries.html",
+    "license": "CC-BY-4.0",
+    "institution": "Hawaii Natural Energy Institute (HNEI), University of Hawaii at Manoa",
+    "country": "US",
+    "authors": [
+      "Arnaud Devie",
+      "George Baure",
+      "Matthieu Dubarry"
+    ],
+    "contact_email": "matthieu.dubarry@gmail.com",
+    "citation": "Devie, A.; Baure, G.; Dubarry, M. Intrinsic Variability in the Degradation of a Batch of Commercial 18650 Lithium-Ion Cells. Energies 2018, 11, 1031. https://doi.org/10.3390/en11051031",
+    "funding": "ONR Asia Pacific Research Initiative for Sustainable Energy Systems (APRISES), award number N00014-13-1-0463"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "ICR18650C2",
+      "manufacturer": "LG_Chem",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 2.8,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": 208.0,
+      "energy_density_wh_l": null,
+      "mass_g": 45.8,
+      "dimensions_mm": {
+        "diameter": 18.0,
+        "length": 65.0,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Cathode is a composite of LiCoO2 (LCO) and LiNi0.4Mn0.2Co0.4O2 (NMC), estimated at 60% LCO / 40% NMC by capacity. Anode is graphitic intercalation compound (GIC). Electrolyte composition not disclosed by manufacturer. Maximum weight per manufacturer spec is 50 g; mean as-received weight was 45.8 g. Energy density ~208 Wh/kg described as high-energy by authors. Recommended charge cut-off 4.30 V with 50 mA CV cut-off current; recommended discharge cut-off 3.00 V; max charge rate C/2 (recommended), 1 C (maximum); max discharge rate 2 C."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "both",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 16,
+      "replicate_cells_min": 15,
+      "replicate_cells_max": 15,
+      "num_unique_conditions": 1,
+      "eol_criteria": "custom",
+      "eol_threshold_pct": null,
+      "notes": "51 cells were initially screened (ICCT); 15 were selected for cycle aging to 1000 cycles under identical conditions; 1 additional cell was harvested for half-cell post-mortem analysis. Study design focuses on characterizing intrinsic cell-to-cell variability in degradation under a single cycling condition. Test ended at 1000 cycles with no pre-specified EOL capacity threshold; final C/5 capacity was ~35% below initial."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.0-4.3"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        100
+      ],
+      "charge_crates": [
+        0.5
+      ],
+      "discharge_crates": [
+        1.5
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 1000,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Multi-channel Arbin battery tester (College Station, TX, USA); two Amerex climate chambers (Concord, CA, USA)",
+      "notes": "No rest periods between regular cycles. Extended cycles every 25 cycles included three 4-hour rest periods (before charge, after charge, after discharge) for rest-cell voltage (RCV) measurement. Cycle aging performed in 10 sequences of 100 cycles each."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [],
+      "data_structure": "",
+      "data_size_gb": null,
+      "data_quality_notes": "",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "pseudo_ocv",
+        "resistance_dc",
+        "ica"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "ocv_curve",
+        "dq_dv"
+      ],
+      "interval": {
+        "value": 100,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        0.04,
+        0.2
+      ],
+      "soc_levels_pct": [],
+      "notes": "Simplified RPT every 100 cycles: C/25 discharge (remnant capacity), C/25 charge, C/25 discharge. Metrics tracked: thermodynamic capacity, capacity ration (mAh/%SOC), pseudo-OCV (average of C/25 charge and discharge), internal series resistance (ohmic drop), rate capability (C/5 vs C/2 ratio). Initial full ICCT included C/25, C/5, and C/2 symmetric CC cycles. Extended cycle every 25 cycles (C/2 charge, 1.5C discharge with 3x4h rests) for SOC tracking at EOC and EOD."
+    }
+  },
+  "notes": "This study focuses on intrinsic cell-to-cell variability in degradation rather than the effect of different aging conditions. All 15 cycle-aged cells were tested under identical conditions at 25°C. The cathode was confirmed by SEM/EDX to be a composite LCO+NMC electrode (LiCoO2 + LiNi0.4Mn0.2Co0.4O2), not disclosed on the manufacturer datasheet. Degradation analysis via incremental capacity analysis (ICA) identified loss of lithium inventory (LLI) as the dominant mechanism, with minor contributions from loss of active material (LAM) on both electrodes and kinetic degradation. After 1000 cycles, cells retained between 40% and 50% of initial C/25 capacity (50-60% capacity loss), with significant spread indicating degradation at different rates despite identical initial conditions and test protocol."
+}

@@ -1,0 +1,294 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "PulseBat: A field-accessible dataset for second-life battery diagnostics from realistic histories using multidimensional rapid pulse test",
+    "short_name": "2024_PulseBat",
+    "year": 2024,
+    "paper_url": "https://www.nature.com/articles/s41467-024-54454-0",
+    "data_url": "https://zenodo.org/records/13360631",
+    "license": "CC-BY-4.0",
+    "institution": "Tsinghua Shenzhen International Graduate School, Tsinghua University; Xiamen Lijing New Energy Technology Co., Ltd.",
+    "country": "CN",
+    "authors": [
+      "Shengyu Tao",
+      "Ruifei Ma",
+      "Zixi Zhao",
+      "Guangyuan Ma",
+      "Lin Su",
+      "Heng Chang",
+      "Yuou Chen",
+      "Haizhou Liu",
+      "Zheng Liang",
+      "Tingwei Cao",
+      "Haocheng Ji",
+      "Zhiyuan Han",
+      "Minyan Lu",
+      "Huixiong Yang",
+      "Zongguo Wen",
+      "Jianhua Yao",
+      "Rong Yu",
+      "Guodan Wei",
+      "Yang Li",
+      "Xuan Zhang",
+      "Tingyang Xu",
+      "Guangmin Zhou"
+    ],
+    "contact_email": "xuanzhang@sz.tsinghua.edu.cn",
+    "citation": "Tao, S. et al. Generative learning assisted state-of-health estimation for sustainable battery recycling with random retirement conditions. Nature Communications 15, 10154 (2024). https://doi.org/10.1038/s41467-024-54454-0",
+    "funding": "Key Scientific Research Support Project of Shanxi Energy Internet Research Institute (SXEI2023A002); Shenzhen International Science and Technology Information Center (2301-440300-04-04-356627); Tsinghua Shenzhen International Graduate School Interdisciplinary Innovative Fund (JC2021006); Shenzhen Pengrui Young Faculty Program of Shenzhen Pengrui Foundation (SZPR2023007); Guangdong Basic and Applied Basic Research Foundation (2023B1515120099)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "cylindrical",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 2.1,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Group 1: NMC cylindrical, 2.1 Ah, lab accelerated aging history, n=67. Voltage range 2.0-4.2 V."
+    },
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "LMO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 10.0,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Group 2: LMO pouch, 10.0 Ah, HEV1 history, n=95. Voltage range 2.7-4.2 V."
+    },
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 21.0,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Group 3: NMC pouch, 21.0 Ah, BEV1 history, n=52. Voltage range 2.7-4.2 V."
+    },
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "prismatic",
+      "cathode_chemistry": "LFP",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 35.0,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Group 4: LFP prismatic, 35.0 Ah, HEV2 history, n=56. Voltage range 2.5-3.65 V."
+    },
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "LMO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 25.0,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Group 5: LMO pouch, 25.0 Ah, PHEV1 history, n=96. Voltage range 2.7-4.2 V."
+    },
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "LMO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 26.0,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Group 6: LMO pouch, 26.0 Ah, HEV3 history, n=98. Voltage range 2.7-4.2 V."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "custom"
+      ],
+      "constant_halfcycle": "not_applicable",
+      "study_design": "custom",
+      "num_cell_types": 6,
+      "num_cells_total": 464,
+      "replicate_cells_min": null,
+      "replicate_cells_max": null,
+      "num_unique_conditions": null,
+      "eol_criteria": "none_ongoing",
+      "eol_threshold_pct": null,
+      "notes": "This is a second-life battery characterization dataset, not a prospective aging study. 464 retired lithium-ion batteries from real EV and lab aging histories were collected at end-of-first-life with diverse and unknown usage histories. Each battery was subjected to a one-time pulse injection protocol across multiple SOC levels to characterize its state-of-health. Aging modes field is set to 'custom' because no cycling or calendar aging experiment was performed on these cells by the authors; the cells arrived already aged."
+    },
+    "electrical": {
+      "cycling_range_basis": "",
+      "cycling_ranges": [],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5
+      ],
+      "discharge_crates": [
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5
+      ],
+      "cv_cutoff_current_c": [
+        0.05
+      ],
+      "charge_protocol": [
+        "CC-CV",
+        "pulse_charging"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "pulsed"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [
+        10,
+        20
+      ],
+      "sampling_rate_hz": 100,
+      "sampling_rate_variable": true,
+      "test_equipment": "BAT-NEEFLCT-05300-V010, NEBULA Co., Ltd.",
+      "notes": "Sampling rate is 1 Hz during Step 1 (capacity calibration) and Step 2 (SOC conditioning), and 100 Hz during Step 3 (pulse injection). rest_between_halfcycles_min includes: 10 min rest after SOC conditioning before pulse injection, and 20 min rest after capacity calibration before SOC conditioning. Pulse rest times range from 450 ms to 75,000 ms depending on pulse width. SOC conditioned from 5% to up to 90% in 5% steps, upper bound depending on cell SOH."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_cell",
+        "capacity_discharge",
+        "capacity_charge",
+        "soc"
+      ],
+      "file_formats": [
+        "zip"
+      ],
+      "data_structure": "hierarchical_folders",
+      "data_size_gb": 13.4,
+      "data_quality_notes": "SOC deviation may occur at high SOC levels (near SOH value) due to asymmetric voltage protection cutoffs during pulse injection. Authors recommend using data from 5-50% SOC for most applications to minimize this effect.",
+      "known_issues": "Voltage protection cutoffs during pulse injection can cause premature termination of individual pulses at high SOC conditions, leading to SOC drift in subsequent pulses. No instances of under-voltage protection during discharge pulses were observed."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "soh"
+      ],
+      "interval": {
+        "value": null,
+        "unit": ""
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        1.0
+      ],
+      "soc_levels_pct": [],
+      "notes": "Capacity calibration (checkup) performed once per cell as Step 1 of the test protocol: CCCV charge at 1C to upper cut-off voltage with CV hold until current drops to 0.05C, followed by CC discharge at 1C to lower cut-off voltage. Actual discharge capacity used as the calibrated true capacity (SOH reference). Cut-off voltages vary by cell type: NMC 2.1Ah cylinder 2.0/4.2V; LMO 10Ah pouch 2.7/4.2V; NMC 21Ah pouch 2.7/4.2V; LFP 35Ah prismatic 2.5/3.65V; LMO 25Ah pouch 2.7/4.2V; LMO 26Ah pouch 2.7/4.2V. Interval is not applicable as this is a one-time characterization."
+    }
+  },
+  "notes": "The PulseBat dataset is a second-life battery diagnostics resource, not a prospective aging experiment. It covers 464 retired lithium-ion batteries from 3 cathode chemistries (NMC, LMO, LFP), 3 form factors (cylindrical, pouch, prismatic), 6 capacity designs (2.1, 10, 21, 25, 26, 35 Ah), and 6 historical usage types (lab accelerated aging, HEV1, BEV1, HEV2, PHEV1, HEV3). The core experiment is a multidimensional rapid pulse injection protocol with 10 pulse widths (30-5000 ms), 10 pulse magnitudes (±0.5 to ±2.5 C), and multiple SOC levels per cell. The dataset supports tasks including SOH estimation, SOC estimation, cathode material identification, and OCV reconstruction. A companion dataset descriptor preprint is available at https://arxiv.org/abs/2502.16848. Data also available at https://zenodo.org/records/13923083. Code repository: https://github.com/terencetaothucb/Pulse-Voltage-Response-Generation."
+}

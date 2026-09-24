@@ -1,0 +1,140 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "CALCE PL Pouch Storage Study",
+    "short_name": "2016_CALCE_PL-Stor_Pouch",
+    "year": 2016,
+    "paper_url": "",
+    "data_url": "https://calce.umd.edu/battery-data",
+    "license": "unknown",
+    "institution": "Center for Advanced Life Cycle Engineering (CALCE), University of Maryland",
+    "country": "US",
+    "authors": [],
+    "contact_email": "pecht@calce.umd.edu",
+    "citation": "CALCE. 'Storage Data and Test Description.' CALCE Battery Data, University of Maryland. https://calce.umd.edu/battery-data",
+    "funding": "Supported by more than 150 companies and organizations supporting CALCE at the University of Maryland"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "PL-325085-2C",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "LCO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.5,
+      "nominal_voltage_v": 3.7,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 30.3,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": 84.4,
+        "width": 50.1,
+        "height": 3.4
+      },
+      "datasheet_url": "",
+      "cell_notes": "Same cell model (PL-325085-2C) used in the companion CALCE PL-Cyc dataset. Cell chemistry and capacity inferred from companion dataset documentation. Named 'PLN' cells in data files (e.g. PLN_51)."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": false,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "calendar"
+      ],
+      "constant_halfcycle": "not_applicable",
+      "study_design": "full_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 144,
+      "replicate_cells_min": 4,
+      "replicate_cells_max": 36,
+      "num_unique_conditions": 12,
+      "eol_criteria": "none",
+      "eol_threshold_pct": null,
+      "notes": "Full factorial: 4 temperatures x 3 SOC levels = 12 unique conditions, 4 cells per condition, 144 cells total. The 144 cells are further divided into 3 groups of 48 by checkup frequency (every 3 weeks, every 3 months, every 6 months). Checkup consists of capacity test and/or impedance measurement."
+    },
+    "electrical": {
+      "cycling_range_basis": "",
+      "cycling_ranges": [],
+      "storage_level_basis": "soc",
+      "storage_levels": [
+        0,
+        50,
+        100
+      ],
+      "dod_pct": [],
+      "charge_crates": [
+        "N/A"
+      ],
+      "discharge_crates": [
+        "N/A"
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [],
+      "discharge_protocol": [],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [],
+      "temperature_storage_c": [
+        -40,
+        -5,
+        25,
+        50
+      ],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 6,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Arbin BT2000",
+      "notes": "Storage intervals between checkups: 3 weeks, 3 months, or 6 months depending on group. No total test duration stated in available documents."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "csv",
+        "xls"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 0.265,
+      "data_quality_notes": "",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "eis"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "impedance_ac"
+      ],
+      "interval": {
+        "value": 3,
+        "unit": "weeks"
+      },
+      "temperature_c": [],
+      "charge_crates": [
+        0.5
+      ],
+      "soc_levels_pct": [],
+      "notes": "Three checkup frequency groups: 48 cells every 3 weeks (capacity + impedance), 48 cells every 3 months (capacity + impedance), 48 cells every 6 months (capacity only). Interval field uses minimum stated interval (3 weeks). Checkup protocol: CCCV charge at C/2 (cutoff C/100), CC discharge at C/2 to measure capacity, then full charge + impedance test."
+    }
+  },
+  "notes": "Dataset label 'PL-Stor' distinguishes this storage dataset from the companion cycling dataset ('PL-Cyc') on the same cell type. No dedicated paper was found for this dataset; the web page (web.pdf) is the primary source. The data_url points to the general CALCE battery data page (anchor #CS2 shared with CS2 cylindrical cell data). has_rawdata is false because no continuous V/I/T timeseries during storage intervals is described; only periodic checkup measurements are recorded. recorded_variables and data_structure fields are inferred from the described checkup procedure and from the companion PL-Cyc dataset structure. Authors and year are not explicitly stated in the web description; year 2016 is inferred from folder naming."
+}

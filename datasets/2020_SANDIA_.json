@@ -1,0 +1,211 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Degradation of Commercial Lithium-Ion Cells as a Function of Chemistry and Cycling Conditions",
+    "short_name": "2020_SANDIA",
+    "year": 2020,
+    "paper_url": "https://doi.org/10.1149/1945-7111/abae37",
+    "data_url": "https://www.batteryarchive.org/snl_study.html",
+    "license": "CC-BY-NC-4.0",
+    "institution": "Sandia National Laboratories",
+    "country": "US",
+    "authors": [
+      "Yuliya Preger",
+      "Heather M. Barkholtz",
+      "Armando Fresquez",
+      "Daniel L. Campbell",
+      "Benjamin W. Juba",
+      "Jessica Romàn-Kustas",
+      "Summer R. Ferreira",
+      "Babu Chalamala"
+    ],
+    "contact_email": "ypreger@sandia.gov",
+    "citation": "Preger et al., J. Electrochem. Soc. 167 120532 (2020). DOI: 10.1149/1945-7111/abae37",
+    "funding": "US Department of Energy Office of Electricity, Energy Storage Program"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "APR18650M1A",
+      "manufacturer": "A123 Systems",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "LFP",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.1,
+      "nominal_voltage_v": 3.3,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 39,
+      "dimensions_mm": {
+        "diameter": 18,
+        "length": 65,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "9 cycling conditions (3 DOD x 3 discharge rates). Voltage range 2.0-3.6 V. Max discharge 30 A."
+    },
+    {
+      "commercial_name": "NCR18650B",
+      "manufacturer": "Panasonic",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.2,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 48.5,
+      "dimensions_mm": {
+        "diameter": 18,
+        "length": 65,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "6 cycling conditions (3 DOD x 2 discharge rates; 3C excluded per manufacturer spec). Voltage range 2.5-4.2 V. Max discharge 6 A. ICP-OES composition Ni0.81Co0.14Al0.05."
+    },
+    {
+      "commercial_name": "18650HG2",
+      "manufacturer": "LG Chem",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC811",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.0,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 47,
+      "dimensions_mm": {
+        "diameter": 18,
+        "length": 65,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "9 cycling conditions (3 DOD x 3 discharge rates). Voltage range 2.0-4.2 V. Max discharge 20 A. ICP-OES composition Ni0.84Mn0.06Co0.10 (Ni-enriched NMC811 variant)."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "partial_factorial",
+      "num_cell_types": 3,
+      "num_cells_total": 48,
+      "replicate_cells_min": 2,
+      "replicate_cells_max": 2,
+      "num_unique_conditions": 24,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "All cells charged at 0.5C per manufacturer guidance. NCA cells excluded from 3C discharge (outside manufacturer spec). Test matrix: 9 conditions for LFP and NMC, 6 conditions for NCA (no 3C conditions). At least 2 cells per condition. Study considered complete once a cell reached 80% of initial capacity; LFP cells in most conditions had not reached EOL by study end. EIS performed at approximately 3% capacity loss intervals (results to be reported separately)."
+    },
+    "electrical": {
+      "cycling_range_basis": "soc",
+      "cycling_ranges": [
+        "40-60",
+        "20-80",
+        "0-100"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        20,
+        60,
+        100
+      ],
+      "charge_crates": [
+        0.5
+      ],
+      "discharge_crates": [
+        0.5,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "cv_cutoff_current_c": [
+        0.05
+      ],
+      "charge_protocol": [
+        "CC",
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        15,
+        25,
+        35
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "thermal_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 36,
+      "total_cycles_approx": 9000,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Arbin SCTS; Arbin LBT21084 high-precision multichannel battery testing system; SPX Tenney Model T10C-1.5 environmental chambers",
+      "notes": "Round of cycling varied from 125 to 1000 cycles per cell; halved if cell experienced >5% capacity loss in prior round. Study duration described as nearly three years. LFP cells reached up to ~9000 EFC; NCA 250–1500 EFC; NMC 200–2500 EFC."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_surface",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "Periodic spikes in capacity data at transitions between capacity check cycles and normal cycling rounds.",
+      "known_issues": "Periodic spikes in the data due to transition between the three-cycle capacity check and the normal round of cycling."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "eis"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge"
+      ],
+      "interval": {
+        "value": null,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        0.5
+      ],
+      "soc_levels_pct": [],
+      "notes": "Capacity check: 3 charge/discharge cycles from 0–100% SOC at 0.5C with CV taper to 0.05 A. Performed at the start and end of each cycling round; round length varied from 125 to 1000 cycles. EIS performed at intervals of approximately 3% capacity loss; EIS results to be published separately."
+    }
+  },
+  "notes": "Multi-chemistry cycling aging study comparing commercial LFP (A123 APR18650M1A), NCA (Panasonic NCR18650B), and NMC (LG Chem 18650HG2) 18650 cells. Factors varied: temperature (15, 25, 35 °C), depth of discharge (40–60%, 20–80%, 0–100% SOC), and discharge C-rate (0.5C, 1C, 2C, 3C; 3C excluded for NCA). All cycling files publicly available at batteryarchive.org. License stated in paper as CC BY-NC-ND 4.0. Data hosted and described at https://www.batteryarchive.org/snl_study.html."
+}

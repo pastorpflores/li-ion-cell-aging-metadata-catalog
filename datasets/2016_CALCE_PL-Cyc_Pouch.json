@@ -1,0 +1,153 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "CALCE PL Pouch Cycling Study (Partial SOC Ranges)",
+    "short_name": "2016_CALCE_PL-Cyc_Pouch",
+    "year": 2016,
+    "paper_url": "https://doi.org/10.1016/j.jpowsour.2016.07.057",
+    "data_url": "https://calce.umd.edu/battery-data",
+    "license": "unknown",
+    "institution": "Center for Advanced Life Cycle Engineering (CALCE), University of Maryland",
+    "country": "US",
+    "authors": [
+      "Saurabh Saxena",
+      "Christopher Hendricks",
+      "Michael Pecht"
+    ],
+    "contact_email": "pecht@calce.umd.edu",
+    "citation": "Saxena, S., Hendricks, C., Pecht, M. (2016). Cycle life testing and modeling of graphite/LiCoO2 cells under different state of charge ranges. Journal of Power Sources, 327, 394-400. https://doi.org/10.1016/j.jpowsour.2016.07.057",
+    "funding": "Supported by more than 150 companies and organizations supporting CALCE at the University of Maryland"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "PL-325085-2C",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "LCO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.5,
+      "nominal_voltage_v": 3.7,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 30.3,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": 84.4,
+        "width": 50.1,
+        "height": 3.4
+      },
+      "datasheet_url": "",
+      "cell_notes": "Nominal capacity rated at C/5 rate. EOC voltage 4.2 V, EOD voltage 2.75 V as specified by manufacturer. Cell label visible on photo: PL-325085-2C, 3.7V 1500mAh. Mass stated as 'without safety circuit'."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "not_applicable",
+      "study_design": "partial_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 16,
+      "replicate_cells_min": 2,
+      "replicate_cells_max": 2,
+      "num_unique_conditions": 8,
+      "eol_criteria": null,
+      "eol_threshold_pct": null,
+      "notes": "5 SOC ranges tested: 0-60%, 0-100%, 20-80%, 40-60%, 40-100%. Two discharge C-rates (C/2 and 2C) applied to 0-100%, 20-80%, and 40-60% ranges; only C/2 applied to 40-100% and 0-60% ranges. 2 cells per condition. Cycling defined by SOC range (Coulomb counting), not fixed voltages. Equivalent full cycles (EFC) used to normalize across partial-cycle conditions. Testing reported up to ~800 EFC for most ranges, ~450 EFC for 40-60% range."
+    },
+    "electrical": {
+      "cycling_range_basis": "soc",
+      "cycling_ranges": [
+        "0-60",
+        "0-100",
+        "20-80",
+        "40-60",
+        "40-100"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        20,
+        60,
+        100
+      ],
+      "charge_crates": [
+        0.5
+      ],
+      "discharge_crates": [
+        0.5,
+        2.0
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "room_temperature",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 800,
+      "rest_between_halfcycles_min": [
+        30
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Arbin BT2000",
+      "notes": "Temperature reported as 25 ± 2°C in a semi-temperature-controlled room. Every 50 cycles took approximately 10 days. Total_cycles_approx refers to equivalent full cycles (EFC); actual partial cycles are higher. Checkup performed every 50 or 100 cycles."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "mat"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 0.658,
+      "data_quality_notes": "CCV (closed-circuit voltage) recorded during positive current steps; OCV recorded when current drops to zero. SOC estimated via Coulomb counting, recalibrated every 50-100 cycles with reference capacity test.",
+      "known_issues": "Rest periods occasionally extended due to equipment unavailability, which may affect capacity measurements for some cells (noted in Fig. 4a of paper)."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test"
+      ],
+      "recorded_variables": [
+        "capacity_discharge"
+      ],
+      "interval": {
+        "value": 50,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        0.5
+      ],
+      "soc_levels_pct": [],
+      "notes": "Full capacity check performed every 50 or 100 partial cycles: CCCV charge / CC discharge at C/2 rate between fixed voltages 2.75 V and 4.2 V. Interval is 50-100 cycles; 50 used here as the minimum stated."
+    }
+  },
+  "notes": "Dataset label 'PL-Cyc' distinguishes this cycling dataset from the storage dataset ('PL-Stor') on the same cell type. The cycling protocol targets SOC windows computed by Coulomb counting rather than voltage limits, making it a variable/partial-cycle study. The charge protocol is CC-CV only for ranges reaching 100% SOC (0-100% and 40-100%); for other ranges, CC-only charge is used (but CC-CV is listed here as the overarching protocol per the characterization and initial charge procedure described in the paper). Manufacturer of the PL cell is not explicitly named in any source document."
+}

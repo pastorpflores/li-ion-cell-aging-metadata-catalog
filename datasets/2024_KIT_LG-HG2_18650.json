@@ -1,0 +1,197 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Comprehensive battery aging dataset: capacity and impedance fade measurements of a lithium-ion NMC/C-SiO cell",
+    "short_name": "2024_KIT_LG-HG2_18650",
+    "year": 2024,
+    "paper_url": "https://www.nature.com/articles/s41597-024-03831-x",
+    "data_url": "https://dx.doi.org/10.35097/1947",
+    "license": "CC-BY-4.0",
+    "institution": "Karlsruhe Institute of Technology (KIT)",
+    "country": "DE",
+    "authors": [
+      "Matthias Luh",
+      "Thomas Blank"
+    ],
+    "contact_email": "matthias.luh@kit.edu",
+    "citation": "Luh, M. & Blank, T. Comprehensive battery aging dataset: capacity and impedance fade measurements of a lithium-ion NMC/C-SiO cell. Scientific Data 11, 1004 (2024). https://doi.org/10.1038/s41597-024-03831-x",
+    "funding": "German Research Foundation (DFG), Research Training Group 2153 'Energy Status Data - Informatics Methods for its Collection, Analysis and Exploitation'"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "LG INR18650HG2",
+      "manufacturer": "LG_Chem",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.0,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": 11.0,
+      "specific_energy_wh_kg": 240.0,
+      "energy_density_wh_l": null,
+      "mass_g": 46.0,
+      "dimensions_mm": {
+        "diameter": 18.3,
+        "length": null,
+        "width": null,
+        "height": 65.0
+      },
+      "datasheet_url": "https://www.nkon.nl/sk/k/hg2.pdf",
+      "cell_notes": "Anode is graphite with silicon oxide (SiO). Cathode chemistry described as H-NMC (LiNixMnyCo1-x-yO2). Allowed voltage range 2.0-4.2 V; used voltage range 2.5-4.2 V. Maximal charging current 6.0 A, discharging current 20.0 A. Temperature range: -5 to +75 C (operation), -5 to +50 C (charging). Energy density 640 Wh/l stated in datasheet."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "calendar",
+        "cycling_symmetric",
+        "cycling_fast_charging",
+        "cycling_drive_cycle"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "full_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 228,
+      "replicate_cells_min": 3,
+      "replicate_cells_max": 3,
+      "num_unique_conditions": 76,
+      "eol_criteria": "capacity_custom",
+      "eol_threshold_pct": 40,
+      "notes": "16 calendar aging parameter sets (48 cells), 48 cyclic aging parameter sets (144 cells), 12 profile aging parameter sets (36 cells). EOL criterion: estimated usable capacity below 40% of nominal capacity during regular cycling, or below 50% of nominal capacity in check-up. Three cells per parameter set throughout."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.5-4.2",
+        "3.249-4.2",
+        "3.249-4.092"
+      ],
+      "storage_level_basis": "voltage",
+      "storage_levels": [
+        10,
+        50,
+        90,
+        100
+      ],
+      "dod_pct": [
+        100,
+        90,
+        80
+      ],
+      "charge_crates": [
+        0.333,
+        1.0,
+        1.667
+      ],
+      "discharge_crates": [
+        0.333,
+        1.0
+      ],
+      "cv_cutoff_current_c": [
+        0.05,
+        0.1
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "drive_cycle"
+      ],
+      "drive_cycle_profiles": [
+        "WLTC_class3b"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        0,
+        10,
+        25,
+        40
+      ],
+      "temperature_storage_c": [
+        0,
+        10,
+        25,
+        40
+      ],
+      "temperature_range_c": [],
+      "ambient_control": "oil_bath",
+      "thermal_management": "liquid_cooling"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 15,
+      "total_cycles_approx": 3000,
+      "rest_between_halfcycles_min": [
+        5
+      ],
+      "sampling_rate_hz": 0.5,
+      "sampling_rate_variable": false,
+      "test_equipment": "Custom battery cycling and measurement acquisition boards (19 cycler boards, each controlling 12 cells); custom-built test bench with DC/DC converters, Raspberry Pi computers, InfluxDB logging, Grafana monitoring",
+      "notes": "Experiment ran from October 12, 2022 to approximately January 4, 2024 (449 days). Data logged with 2-second temporal resolution. Calendar aging cells recharged only if OCV deviates more than 5 mV from target voltage. Profile aging uses WLTP Class 3b driving cycle repeated until SoC falls below 10%."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_surface",
+        "capacity_charge",
+        "capacity_discharge",
+        "energy_charge",
+        "energy_discharge",
+        "power",
+        "soc"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 878.0,
+      "data_quality_notes": "Raw LOG dataset: 878 GB uncompressed, 55.7 GB compressed. Compact LOG_AGE dataset: 48.9 GB uncompressed, 5.1 GB compressed (30 s resolution for cyclic/calendar, 2 s for profile). Data gaps exist primarily in first two months due to Ethernet issues and power outages. Synthetic zero-current data points inserted at gap boundaries. NaN values documented in plausibility check spreadsheet.",
+      "known_issues": "Sporadic Ethernet failures in first two months causing data gaps. Three instances of power-cycling-induced flash data loss on cycler boards (slaves 6, 14, 16). Software bug caused incomplete PULSE data on SD card (resolved by using InfluxDB data). Temperature control issue Nov 27-29, 2022 (cold box dew point issue). One Peltier element failure in 25 C pool on April 23, 2023."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "eis",
+        "resistance_pulse",
+        "ocv_curve"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "coulombic_efficiency",
+        "impedance_ac",
+        "eis_nyquist",
+        "resistance_dc"
+      ],
+      "interval": {
+        "value": 3,
+        "unit": "weeks"
+      },
+      "temperature_c": [
+        25,
+        0,
+        10,
+        40
+      ],
+      "charge_crates": [
+        0.333
+      ],
+      "soc_levels_pct": [
+        10,
+        30,
+        50,
+        70,
+        90
+      ],
+      "notes": "First check-up at experiment start (Oct 12, 2022), second after 1 week, then every 3 weeks thereafter. Each check-up lasts approximately 1.5 days. Capacity check: CC-CV 1/3 C charge/discharge, 2.5-4.2 V, cutoff 1/20 C (0.15 A). EIS measured at RT (25 C) and operating temperature (OT) at 5 SoC points (10/30/50/70/90%) in ascending then descending order; frequency range 50 mHz to 14.7 kHz, amplitude +/-1/6 C (+/-0.5 A). Pulse pattern also applied at same SoC points; pulses of +/-1/3 C (+/-1.0 A) for 10 s with 60 s at +/-1/3 C. Check-up cutoff current: 1/20 C (0.15 A) for calendar cells, 1/10 C (0.3 A) for cyclic/profile cells."
+    }
+  },
+  "notes": "One of the largest published open-access battery aging datasets, containing over 3 billion data points from 228 NMC/C-SiO (LG INR18650HG2) cells aged for more than one year under 76 different operating conditions. Dataset includes both raw 2-second resolution log data and post-processed result data (EOC, EIS, PULSE). Cells submerged in silicone oil pools (Julabo Thermal H20S) for thermal management. Pool temperatures controlled to within +/-0.5 K of set point. Data hosted on RADAR4KIT repository (Karlsruhe Institute of Technology). Total download size: 69.4 GB. Published data covers 449 days (version 1). Companion paper DOI: 10.1038/s41597-024-03831-x. Example Python scripts available at https://github.com/energystatusdata/bat-age-data-scripts."
+}

@@ -1,0 +1,152 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "CALCE Accelerated Cycle Life Testing - LiCoO2 Pouch Cells (2018)",
+    "short_name": "2018_CALCE_AccelTest_Pouch",
+    "year": 2018,
+    "paper_url": "https://www.mdpi.com/2076-3417/8/10/1786",
+    "data_url": "https://calce.umd.edu/battery-accelerated-cycle-life-testing-data",
+    "license": "CC-BY-4.0",
+    "institution": "Center for Advanced Life Cycle Engineering (CALCE), University of Maryland",
+    "country": "US",
+    "authors": [
+      "Weiping Diao",
+      "Yinjiao Xing",
+      "Saurabh Saxena",
+      "Michael Pecht"
+    ],
+    "contact_email": "pecht@umd.edu",
+    "citation": "Diao, W., Xing, Y., Saxena, S., and Pecht, M. (2018). Evaluation of present accelerated temperature testing and modeling of batteries. Applied Sciences, 8(10), 1786. doi:10.3390/app8101786",
+    "funding": "No external funding reported; supported by CALCE member companies and organizations"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "",
+      "form_factor": "pouch",
+      "cathode_chemistry": "LCO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "LiPF6 salt mixed with organic solvent",
+      "separator": "",
+      "nominal_capacity_ah": 3.36,
+      "nominal_voltage_v": 3.82,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Charge cut-off voltage 4.4 V; discharge cut-off voltage 3.0 V. Electrolyte stated as LiPF6-salt mixed with organic solvent (paper.pdf, Case Study 2)."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "full_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 192,
+      "replicate_cells_min": 3,
+      "replicate_cells_max": 8,
+      "num_unique_conditions": 24,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "Full factorial DOE: 4 temperatures x 2 charge cut-off C-rates x 3 discharge C-rates = 24 conditions. Most conditions have 8 cells; conditions 23 and 24 (60 °C, 2C discharge) have only 3 cells reported. EOL at 80% nominal capacity as shown in figures."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.0-4.4"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        1.5,
+        1.0
+      ],
+      "discharge_crates": [
+        0.7,
+        1.0,
+        2.0
+      ],
+      "cv_cutoff_current_c": [
+        0.2,
+        0.025
+      ],
+      "charge_protocol": [
+        "MCC"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        10,
+        25,
+        45,
+        60
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 1000,
+      "rest_between_halfcycles_min": [
+        5
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "",
+      "notes": "Cycles run until ~1000 cycles or EOL. Checkup performed every 50 cycles. Rest of 5 min between charge and discharge half-cycles."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_discharge",
+        "capacity_charge"
+      ],
+      "file_formats": [],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "",
+      "known_issues": "Conditions 23 and 24 (60 °C & 2C discharge) have only 3 of the planned 8 cells reported."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test"
+      ],
+      "recorded_variables": [
+        "capacity_discharge"
+      ],
+      "interval": {
+        "value": 50,
+        "unit": "cycles"
+      },
+      "temperature_c": [],
+      "charge_crates": [
+        1.5,
+        1.0
+      ],
+      "soc_levels_pct": [],
+      "notes": "Capacity measurement: standard charge profile followed by rest 5 min then standard discharge (0.7C to 3.0 V). Standard charge: 1.5C to 4.2 V, hold until 1C, then 1C to 4.4 V, hold until 0.025C."
+    }
+  },
+  "notes": "The dataset is associated with three publications: (1) Diao et al. 2019 J. Power Sources 435:226830 (accelerated cycle life and capacity degradation modeling); (2) Diao et al. 2019 Energies 12(15):2910 (knee-point algorithm); (3) Diao et al. 2018 Appl. Sci. 8(10):1786 (evaluation of Arrhenius model and decade rule). The charge protocol is a two-stage CC-CV: first stage 1.5C CC to 4.2 V then CV to 1C, second stage 1C CC to 4.4 V then CV to either C/5 or C/40 (stress factor 2). CALCE website also lists initial characterization data, continuous cycling data, and periodical characterization data as available downloads."
+}

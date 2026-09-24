@@ -1,0 +1,158 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "NASA Li-ion Battery Aging Dataset ARC‑FY08Q4",
+    "short_name": "2007_NASA_ARC‑FY08Q4_18650",
+    "year": 2007,
+    "paper_url": "https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/",
+    "data_url": "https://c3.ndc.nasa.gov/dashlink/resources/133/",
+    "license": "unknown",
+    "institution": "NASA Ames Research Center",
+    "country": "US",
+    "authors": [
+      "B. Saha",
+      "K. Goebel"
+    ],
+    "contact_email": "",
+    "citation": "B. Saha and K. Goebel (2007). \"Battery Data Set\", NASA Ames Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA\n",
+    "funding": ""
+  },
+  "cell_info": [
+    {
+      "anode_chemistry": "graphite",
+      "cathode_chemistry": "LCO",
+      "cell_notes": "Commercially available Li-ion 18650 cells; manufacturer and chemistry not specified in documentation. Cathode/anode (LCO/graphite) not stated by NASA; assigned from secondary literature describing the dataset as LiCoO2/graphite 18650 cells.",
+      "commercial_name": "unknown",
+      "datasheet_url": "",
+      "dimensions_mm": {
+        "diameter": 18,
+        "height": null,
+        "length": 65,
+        "width": null
+      },
+      "electrolyte": "",
+      "energy_density_wh_l": null,
+      "form_factor": "cylindrical_18650",
+      "manufacturer": "Unknown",
+      "mass_g": null,
+      "nominal_capacity_ah": 2,
+      "nominal_energy_wh": null,
+      "nominal_voltage_v": null,
+      "separator": "",
+      "specific_energy_wh_kg": null
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric",
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "",
+      "num_cell_types": 1,
+      "num_cells_total": 34,
+      "replicate_cells_min": 1,
+      "replicate_cells_max": 1,
+      "num_unique_conditions": 34,
+      "eol_criteria": "capacity_custom",
+      "eol_threshold_pct": 0.8,
+      "notes": "34 cells (B0005-B0056, not all IDs used) divided into 6 packs. EOL defined as 1.4 Ahr (~30% capacity fade) for most cells, or 1.6 Ahr (~20% fade) for some groups. Nominal capacity implied ~2.0 Ahr but not explicitly stated. Some cells (B0049-B0052) stopped due to experiment software crash. Cells B0025-B0028 used a 0.05 Hz square-wave pulsed discharge (4A amplitude, 50% duty cycle). Cells B0041-B0044 used variable discharge levels (4A and 1A). Each cell appears to be a unique condition (1 cell per condition); no explicit replication stated."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "4.2-2",
+        "4.2-2.2",
+        "4.2-2.5",
+        "4.2-2.7"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.75
+      ],
+      "discharge_crates": [
+        1,
+        2,
+        0.5
+      ],
+      "cv_cutoff_current_c": [
+        0.02
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "pulsed",
+        "variable_load"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        4,
+        24,
+        43
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [
+        4,
+        24,
+        43,
+        "24-44"
+      ],
+      "ambient_control": "climate_chamber",
+      "thermal_management": ""
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": 10,
+      "sampling_rate_variable": false,
+      "test_equipment": "PXI chassis based DAQ; programmable 4-channel DC electronic load; programmable 4-channel DC power supply; custom EIS equipment; MATLAB-based control and data acquisition",
+      "notes": "Data acquisition rate approximately 10 Hz. Some cells cycled at 24-44°C (temperature range, not fixed point). Vmin varied across cells: 2.0, 2.2, 2.5, and 2.7 V. Charge upper cutoff voltage: 4.2 V. Charge CV cutoff current: <20 mA (absolute, not given as C-rate). Charge current: 1.5 A CC for all cells."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_surface"
+      ],
+      "file_formats": [
+        "mat"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 0.1985,
+      "data_quality_notes": "Several discharge runs on cells at 4°C showed anomalously low capacity and voltage levels; reasons not fully analyzed per documentation.",
+      "known_issues": "Cells B0049-B0052 stopped prematurely due to experiment software crash. Some 4°C cells (B0041-B0052) show anomalous discharge runs with very low capacity and voltage."
+    },
+    "checkup": {
+      "types": [
+        "eis"
+      ],
+      "recorded_variables": [
+        "impedance_ac",
+        "eis_nyquist"
+      ],
+      "interval": {
+        "value": null,
+        "unit": ""
+      },
+      "temperature_c": [],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": "Custom EIS equipment listed as part of testbed. EIS check-up interval and SOC/temperature conditions for EIS not described in documentation. Capacity measurements are implied from experiment stop criteria but a formal RPT schedule is not described."
+    }
+  },
+  "notes": "This is the NASA Ames Prognostics Data Repository Battery Dataset (Dataset 5), one of the most widely cited battery aging datasets. The study varies discharge cutoff voltage (Vmin), discharge current magnitude, discharge profile (CC vs. pulsed vs. variable), and temperature across 34 commercially available 18650 Li-ion cells. All cells share the same charge protocol: 1.5A CC to 4.2V, with CV phase until current drops below 20 mA. The dataset is primarily used for RUL (remaining useful life) prognostics research. C-rates are not stated explicitly (nominal capacity is not given); discharge currents are stated in absolute amperes (1A, 2A, 4A). Temperature conditions include 4°C, 24°C, 43°C, and a cycling range of 24-44°C.",
+  "_review": {
+    "flagged_fields": []
+  }
+}

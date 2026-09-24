@@ -1,0 +1,196 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Experimental degradation study of a commercial lithium-ion battery (TUM bawaii)",
+    "short_name": "2023_TUM_Sony-VTC5A_18650",
+    "year": 2023,
+    "paper_url": "https://www.sciencedirect.com/science/article/pii/S0378775322014756",
+    "data_url": "https://mediatum.ub.tum.de/1734374",
+    "license": "CC-BY-4.0",
+    "institution": "Technical University of Munich (TUM)",
+    "country": "DE",
+    "authors": [
+      "Leo Wildfeuer",
+      "Alexander Karger",
+      "Deniz Aygül",
+      "Nikolaos Wassiliadis",
+      "Andreas Jossen",
+      "Markus Lienkamp"
+    ],
+    "contact_email": "leo.wildfeuer@tum.de",
+    "citation": "Wildfeuer, L.; Karger, A.; Aygül, D.; Wassiliadis, N.; Jossen, A.; Lienkamp, M. (2023): Experimental degradation study of a commercial lithium-ion battery. Journal of Power Sources 560, p. 232498. DOI: 10.1016/j.jpowsour.2022.232498.",
+    "funding": "Bavarian Ministry of Economic Affairs, Regional Development and Energy, Germany (project bawaii — battery analytics with artificial intelligence, IUK-1808-0013)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "US18650VTC5A",
+      "manufacturer": "Sony",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 2.5,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 47.65,
+      "dimensions_mm": {
+        "diameter": 18.0,
+        "length": 65.0,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Silicon-doped graphite anode (1.4 wt% Si). NCA formulation LiNi0.80Co0.15Al0.05O2. CCCV capacity 2.53 Ah. 10s DC resistance 32.42 mΩ at 100% SOC (experimentally determined). All 196 cells from the same production batch."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "calendar",
+        "cycling_symmetric",
+        "mixed_cycling_calendar"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 196,
+      "replicate_cells_min": 1,
+      "replicate_cells_max": 3,
+      "num_unique_conditions": 65,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "13 groups (A–M). Calendar aging (Groups B–G): full-factorial design in T–SOC space with three CU interval sub-groups (6, 12, 96 weeks). Cycle aging (Group H): D-optimal design with 38 test points and 72 cells across 5 stress factors (T, mean SOC, DOD, C_charge, C_discharge). Groups I–J: alternating and random stress factor cycling. Groups K–M: mixed calendar/cycling or dynamic protocol cycling. Group A: CU-only reference cell. Group X (added in dataset update): BOL-only cells. Group Y (added in dataset update): cycling followed by calendar aging. Some cells at 60°C/100% SOC reached 0 V before end of study at 697 days. Raw timeseries data is publicly available in the repository."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.5-4.2"
+      ],
+      "storage_level_basis": "soc",
+      "storage_levels": [
+        10,
+        50,
+        70,
+        100
+      ],
+      "dod_pct": [
+        5,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "charge_crates": [
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "discharge_crates": [
+        1.0,
+        2.0,
+        5.0,
+        10.0,
+        14.0
+      ],
+      "cv_cutoff_current_c": [
+        0.02
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        5,
+        20,
+        35,
+        50
+      ],
+      "temperature_storage_c": [
+        20,
+        35,
+        50,
+        60
+      ],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 23,
+      "total_cycles_approx": 1500,
+      "rest_between_halfcycles_min": [
+        0,
+        10
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": true,
+      "test_equipment": "BaSyTec CTS; BaSyTec XCTS MKII (for high-current cycling)",
+      "notes": "Calendar aging ran for 697 days (~23 months). Cycle aging reached up to 1500 EFC. Rest between half-cycles during cycling: t_pause = 600 s × DOD, maximum 10 min. Check-up interval for cycling: 50 EFC. Check-up intervals for calendar aging: 6 weeks (Group B), 12 weeks (Group C), 96 weeks (Group D). Group D cells received only initial and final CU (at 96 weeks / 672 days)."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_cell",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "xlsx",
+        "custom"
+      ],
+      "data_structure": "hierarchical_folders",
+      "data_size_gb": null,
+      "data_quality_notes": "Dataset updated (doi:10.14459/2024mp1734374) to include previously undescribed cells (Groups X and Y). Corrected cell overview file: bawaii_cell_overview_publication_corrected.xlsx. Newly described cells marked in yellow; researchers advised to verify test conditions for those cells.",
+      "known_issues": "Half-cell fitting algorithm fails for some cells at high storage SOCs (80–95%) after a few check-ups due to an additional peak appearing in the C/10 differential voltage. Some cells stored at 60°C/100% SOC reached 0 V at ~500 days."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "resistance_pulse",
+        "pseudo_ocv",
+        "dva"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "ocv_curve",
+        "dq_dv",
+        "soh",
+        "custom"
+      ],
+      "interval": {
+        "value": 50,
+        "unit": "efc"
+      },
+      "temperature_c": [
+        20
+      ],
+      "charge_crates": [
+        0.1,
+        1.0
+      ],
+      "soc_levels_pct": [
+        20,
+        50,
+        100
+      ],
+      "notes": "Check-up (CU) performed consistently at 20°C. Protocol: 3 h rest, CC discharge at 1C (I=2.5 A) to 2.5 V, 2 h rest, CCCV charge (I=0.25C, U_max=4.2V, I_cut=0.02C, t_cut=1h), CCCV discharge for capacity, slow C/10 charge for pOCV/DVA half-cell fitting (LLI, LAM_NE, LAM_PE), then 18s DC pulse at 100%, 50% and 20% SOC for resistance. SOH parameters reported: SOH_C (capacity), SOH_R (resistance), SOH_LI (LLI), SOH_NE (LAM anode), SOH_PE (LAM cathode). Calendar CU intervals: 6 weeks (Group B, ~4000+ total CUs), 12 weeks (Group C), 96 weeks (Group D). Over 4000 CU measurements in total."
+    }
+  },
+  "notes": "Dataset known as 'bawaii' (battery analytics with artificial intelligence). Original data DOI: 10.14459/2023mp1713382. Updated dataset DOI: 10.14459/2024mp1734374 (includes Groups X and Y). The D-optimal cycle aging design covered mean SOC levels 10–90% and DOD 5–100% (Table 4 stress factor levels: T in [5,20,35,50]°C, mean SOC in [10,20,30,40,50,60,80,90]%, DOD in [5,20,40,60,80,100]%, C_charge in [0.5,1,1.5,2]C, C_discharge in [1,2,5,10,14]C). The study quantifies five state-of-health parameters: capacity fade, resistance increase, LLI, LAM at negative electrode, and LAM at positive electrode. Dominant degradation mode for calendar aging is LLI; for cycling, LLI and LAM_NE. Silicon-graphite anode shows faster degradation at low SOC and at high charging currents at low temperature (lithium plating suspected)."
+}

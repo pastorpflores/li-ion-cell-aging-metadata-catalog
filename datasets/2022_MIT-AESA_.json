@@ -1,0 +1,146 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Battery Degradation Dataset (Fixed Current Profiles & Arbitrary Uses Profiles)",
+    "short_name": "2022_MIT-AESA",
+    "year": 2022,
+    "paper_url": "https://www.sciencedirect.com/science/article/pii/S2405829722002446",
+    "data_url": "https://data.mendeley.com/datasets/kw34hhw7xg/3",
+    "license": "CC-BY-4.0",
+    "institution": "Beijing Institute of Technology",
+    "country": "CN",
+    "authors": [
+      "Jiahuan Lu",
+      "Rui Xiong",
+      "Jinpeng Tian",
+      "Chenxu Wang",
+      "Chia-Wei Hsu",
+      "Nien-Ti Tsou",
+      "Fengchun Sun",
+      "Ju Li"
+    ],
+    "contact_email": "rxiong@bit.edu.cn",
+    "citation": "Lu, J., Xiong, R., Tian, J., Wang, C., Hsu, C. W., Tsou, N. T., Sun, F., & Li, J. (2022). Battery Degradation Prediction Against Uncertain Future Conditions with Recurrent Neural Network Enabled Deep Learning. Energy Storage Materials, 50, 139-151. https://doi.org/10.1016/j.ensm.2022.05.007",
+    "funding": "National Natural Science Foundation of China (Grant No. 51922006 and 51877009); China National Postdoctoral Program for Innovative Talents (Grant No. BX2021035)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "LR1865SZ",
+      "manufacturer": "unknown",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 2.4,
+      "nominal_voltage_v": 3.7,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Cathode is LiCoO2 + LiNi0.5Co0.2Mn0.3O2 blend; anode is graphite. Manufacturer is LISHEN. Lower cut-off voltage 3.0 V, upper cut-off voltage 4.2 V, CV cut-off current 0.048 A. 77 nominally identical cells; formation cycling already performed prior to experiments."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": false,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric",
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 77,
+      "replicate_cells_min": null,
+      "replicate_cells_max": null,
+      "num_unique_conditions": 8,
+      "eol_criteria": "capacity_custom",
+      "eol_threshold_pct": null,
+      "notes": "Two-stage protocol: Stage 1 = 20 preliminary cycles (0.5 C CCCV charge + 2 C CC discharge) for all 77 cells. Stage 2 = cyclic degradation to EOL. Group I (22 cells): fixed CC charge (1C, 2C, or 3C) and fixed CC discharge (1C, 2C, or 3C). Group II (55 cells): random charge policy (uniform distribution among 1C, 2C, 3C, changes every 5 cycles) and fixed 3C CC discharge. All batteries cycled to their respective EOL."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.0-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.5,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "discharge_crates": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "cv_cutoff_current_c": [
+        0.02
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "",
+      "thermal_management": ""
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "",
+      "notes": "Stage 1: 20 preliminary cycles. Stage 2: cycling to EOL (~120 cycles shown in figures for NMC/graphite group). Dataset total size is 2.17 GB."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [],
+      "data_structure": "hierarchical_folders",
+      "data_size_gb": 2.17,
+      "data_quality_notes": "Data organized in two folders: 'Cycled with Arbitrary Uses Profiles' and 'Cycled with Fixed Current Profiles'. Capacity-voltage (Q-V) matrix sampled on voltage grid 3.0-4.2 V with 120 grid points used in modeling.",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [],
+      "recorded_variables": [],
+      "interval": {
+        "value": null,
+        "unit": ""
+      },
+      "temperature_c": [],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": ""
+    }
+  },
+  "notes": "This dataset is the primary experimental dataset from the AESA Group at Beijing Institute of Technology (with MIT affiliation). It is the first battery degradation dataset accommodating greatly varying working loads for each cell. A second companion paper (Tian et al., Joule, 2021; https://www.cell.com/joule/fulltext/S2542-4351(21)00247-6) uses Oxford, NASA, and CALCE datasets alongside the LR1865SZ dataset for DNN-based charging curve prediction. The Mendeley repository (DOI: 10.17632/kw34hhw7xg.3) is the authoritative data source. Manufacturer of the LR1865SZ cell is LISHEN (stated in paper2 text)."
+}

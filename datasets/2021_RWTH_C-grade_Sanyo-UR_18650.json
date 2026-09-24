@@ -1,0 +1,162 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Time-series cyclic aging data on 48 commercial NMC/graphite Sanyo/Panasonic UR18650E cylindrical cells",
+    "short_name": "2021_RWTH_C-grade_Sanyo-UR_18650",
+    "year": 2021,
+    "paper_url": "https://www.sciencedirect.com/science/article/pii/S0378775321005528",
+    "data_url": "https://publications.rwth-aachen.de/record/818642",
+    "license": "CC-BY-4.0",
+    "institution": "RWTH Aachen University (ISEA)",
+    "country": "DE",
+    "authors": [
+      "Weihan Li",
+      "Neil Sengupta",
+      "Philipp Dechent",
+      "David Howey",
+      "Anuradha Annaswamy",
+      "Dirk Uwe Sauer"
+    ],
+    "contact_email": "weihan.li@isea.rwth-aachen.de",
+    "citation": "Li, W., Sengupta, N., Dechent, P., Howey, D., Annaswamy, A., Sauer, D.U. (2021). One-shot battery degradation trajectory prediction with deep learning. Journal of Power Sources, 506, 230024. https://doi.org/10.1016/j.jpowsour.2021.230024",
+    "funding": "EU Horizon 2020 EVERLASTING (grant 713771); German Federal Ministry for Economic Affairs and Energy (BMWi) project E2Fuels (03EIV011F)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "UR18650E",
+      "manufacturer": "Panasonic",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.85,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "C-grade cells drawn from the same production lot; mean capacity approximately 1.85 Ah compared to A-grade nominal capacity of 2.05 Ah. Cells are commercially known as Sanyo/Panasonic UR18650E."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "both",
+      "study_design": "unknown",
+      "num_cell_types": 1,
+      "num_cells_total": 48,
+      "replicate_cells_min": 48,
+      "replicate_cells_max": 48,
+      "num_unique_conditions": 1,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "All 48 cells aged under identical conditions to study intrinsic manufacturing variability. 65% of nominal capacity used as a secondary EOL criterion. One cell discarded due to incomplete capacity degradation curve. 42 cells used for model training, 5 kept for blind testing."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.5-3.9"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        1.0
+      ],
+      "discharge_crates": [
+        1.0
+      ],
+      "cv_cutoff_current_c": [
+        0.04
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 1700,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "",
+      "notes": "One cycle consists of 30 min discharging to 3.5 V and 30 min charging to 3.9 V, both current limited to maximum 1 A. Charge turnover approximately 1 Ah per cycle, corresponding to approximately 20-80% SOC. Tests started in batches of four cells every two to three days. On average 160 charging-discharging cycles per cycling round between checkups. Average EOL80 at approximately 1175 cycles; average EOL65 at approximately 1350 cycles; average knee-point at approximately 1088 cycles."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_cell",
+        "capacity_charge",
+        "capacity_discharge",
+        "energy_charge",
+        "energy_discharge"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "Raw dataset consists of individual CSV files with time-series data for every tested cell.",
+      "known_issues": "Measurement equipment limitations caused tests to be started in batches of four cells every two to three days, resulting in slight time shifts between cells."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "resistance_pulse",
+        "eis",
+        "ocv_curve"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "impedance_ac",
+        "ocv_curve"
+      ],
+      "interval": {
+        "value": 160,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        2.0
+      ],
+      "soc_levels_pct": [
+        30,
+        50,
+        70
+      ],
+      "notes": "RPT includes capacity tests and pulse resistance tests at 25°C at three voltage levels corresponding to approximately 30%, 50% and 70% SOC. BOL characterization test included multi-pulse test, capacity test, and qOCV test. EIS measurements also performed at BOL but not included in RPT. Charging in checkup performed with 2 A CC until 4.1 V, then CV until current below 40 mA; discharging with 2 A CC until 3.0 V. No impedance measurements in RPT. On average 17 characterization tests per cell over its lifetime."
+    }
+  },
+  "notes": "Dataset published under DOI: 10.18154/RWTH-2021-04545. Raw data (Rawdata.zip) available at https://publications.rwth-aachen.de/record/818642/files/Rawdata.zip. Processed dataset and code available at https://git.rwth-aachen.de/isea/battery-degradation-trajectory-prediction. The cycling methodology uses voltage-limited half-cycles to reflect real-world operating regimes and to reduce influence of test equipment variation. The dataset is specifically designed to explore intrinsic manufacturing variability under identical aging conditions, not multi-stress-factor aging."
+}

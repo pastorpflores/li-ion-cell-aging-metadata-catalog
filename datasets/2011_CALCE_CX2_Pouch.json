@@ -1,0 +1,148 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "CALCE CX2 Pouch Battery Dataset",
+    "short_name": "CALCE_CX2",
+    "year": 2011,
+    "paper_url": "",
+    "data_url": "https://calce.umd.edu/battery-data",
+    "license": "unknown",
+    "institution": "CALCE (Center for Advanced Life Cycle Engineering), University of Maryland",
+    "country": "US",
+    "authors": [
+      "Wei He",
+      "Nicholas Williard",
+      "Michael Osterman",
+      "Michael Pecht"
+    ],
+    "contact_email": "pecht@umd.edu",
+    "citation": "He, W., Williard, N., Osterman, M., & Pecht, M. (2011). Prognostics of lithium-ion batteries based on Dempster-Shafer theory and the Bayesian Monte Carlo method. Journal of Power Sources, 196(23), pp.10314-10321. Xing, Y., Ma, E., Tsui, K.L., & Pecht, M. (2013). An Ensemble Model for Predicting the Remaining Useful Performance of Lithium-ion Batteries. Microelectronics Reliability, 53(6), pp.811-820.",
+    "funding": ""
+  },
+  "cell_info": [
+    {
+      "commercial_name": "CX2",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "LCO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.35,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 28.0,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": 50.0,
+        "width": 33.8,
+        "height": 6.6
+      },
+      "datasheet_url": "",
+      "cell_notes": "LiCoO2 cathode; EDS analysis showed trace elements of Manganese. Jellyroll configuration wrapped around the width axis. Mass excludes safety circuit. Anode assumed graphite (not stated in CALCE documentation)."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": false,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric",
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 12,
+      "replicate_cells_min": 1,
+      "replicate_cells_max": 8,
+      "num_unique_conditions": 5,
+      "eol_criteria": "\"capacity_0.75\"",
+      "eol_threshold_pct": 0.75,
+      "notes": "Six test types: Type 1 & 2 - 0.5C symmetric cycling (8 cells: CX2-16, CX2-31, CX2-33, CX2-34, CX2-35, CX2-36, CX2-37, CX2-38); Type 3 - 3C discharge (CX2-8); Type 4 - pulsed discharge profile alternating 0.5C and 1C for 30 s each until 3.2V, then CC 0.5C to 2.7V (CX2-3); Type 5 - 1C discharge with ambient temperature stepped +10 C every 10 cycles between 25, 35, 45 and 55 C (CX2-4); Type 6 - pulsed discharge stepping 0.5C/1C/2C each for 1 min with 5 min rests (CX2-32). Distinction between Type 1 and Type 2 is not explicitly stated in the available documentation."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.7-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.5
+      ],
+      "discharge_crates": [
+        0.5,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "cv_cutoff_current_c": [
+        0.05
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "pulsed"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25.0,
+        35.0,
+        45.0,
+        55.0
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "",
+      "thermal_management": ""
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Arbin Battery Tester (most cells); CADEX Battery Tester (CX2-4 and CX2-31)",
+      "notes": "Data files for each cell are collections of Excel files named by testing date (Arbin cells) or .txt files (CADEX cells). Thermocouple temperature data provided as .xlsx for CX2-4."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_discharge",
+        "temperature_cell"
+      ],
+      "file_formats": [
+        "xlsx",
+        "xls",
+        "txt"
+      ],
+      "data_structure": "single_file_per_test",
+      "data_size_gb": 1.3,
+      "data_quality_notes": "Excel files named by testing date per cell. CX2-4 and CX2-31 tested with CADEX (different format). Thermocouple data in separate .xlsx Temperature folder for CX2-4.",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [],
+      "recorded_variables": [],
+      "interval": {
+        "value": null,
+        "unit": ""
+      },
+      "temperature_c": [],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": ""
+    }
+  },
+  "notes": "The CV cutoff current of 0.05A corresponds to approximately 0.037C for a 1.35 Ah cell. The temperature values [25, 35, 45, 55] apply only to CX2-4 (Type 5); all other cells have no stated ambient temperature. The source URL points to the CALCE battery data page which covers multiple CALCE datasets (CX2 and CS2 share the same page anchor). No license is explicitly stated for the dataset. The year 2011 is derived from the first referenced publication (He et al., 2011)."
+}

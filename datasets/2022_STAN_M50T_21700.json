@@ -1,0 +1,164 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Lithium-ion battery aging dataset based on electric vehicle real-driving profiles",
+    "short_name": "2022_STAN_M50T_21700",
+    "year": 2022,
+    "paper_url": "https://www.sciencedirect.com/science/article/pii/S2352340922002062",
+    "data_url": "https://osf.io/qsabn/overview?view_only=2a03b6c78ef14922a3e244f3d549de78",
+    "license": "CC-BY-4.0",
+    "institution": "Stanford Energy Control Laboratory, Energy Resources Engineering, Stanford University",
+    "country": "US",
+    "authors": [
+      "Gabriele Pozzato",
+      "Anirudh Allam",
+      "Simona Onori"
+    ],
+    "contact_email": "sonori@stanford.edu",
+    "citation": "Pozzato, G., Allam, A., Onori, S. (2022). Lithium-ion battery aging dataset based on electric vehicle real-driving profiles. Data in Brief, 41, 107995. https://doi.org/10.1016/j.dib.2022.107995",
+    "funding": "Bits and Watts Initiative within the Precourt Institute for Energy at Stanford University"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "INR21700-M50T",
+      "manufacturer": "LG_Chem",
+      "form_factor": "cylindrical_21700",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 4.85,
+      "nominal_voltage_v": 3.63,
+      "nominal_energy_wh": 18.2,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 69.25,
+      "dimensions_mm": {
+        "diameter": 21.44,
+        "length": 70.8,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "https://www.batteryspace.com/prod-specs/11514.pdf",
+      "cell_notes": "Graphite and silicon composite anode. Charge cutoff voltage 4.2 V, discharge cutoff voltage 2.5 V, cutoff current 50 mA."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_drive_cycle"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "one_factor_at_a_time",
+      "num_cell_types": 1,
+      "num_cells_total": 10,
+      "replicate_cells_min": 1,
+      "replicate_cells_max": 2,
+      "num_unique_conditions": 4,
+      "eol_criteria": "none_ongoing",
+      "eol_threshold_pct": null,
+      "notes": "10 cells tested at 23°C with 4 different CC charge rates (C/4, C/2, 1C, 3C). Discharge follows UDDS drive cycle from 80% to 20% SOC. Two cells (W3 and W7) were dismissed early due to anomalous impedance behavior."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.5-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        60
+      ],
+      "charge_crates": [
+        0.25,
+        0.5,
+        1.0,
+        3.0
+      ],
+      "discharge_crates": ["N/A"],
+      "cv_cutoff_current_c": [
+        0.0103
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "drive_cycle"
+      ],
+      "drive_cycle_profiles": [
+        "UDDS"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        23
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "thermal_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 23,
+      "total_cycles_approx": 219,
+      "rest_between_halfcycles_min": [
+        30
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Arbin Instruments LBT21024; Amerex IC500R thermal chamber; Gamry EIS 1010E; T-type thermocouple (Omega); MITS Pro software and Data Watcher",
+      "notes": "RPTs performed every 25 cycles for most cells (some cells every 50 cycles). Rest of 30 minutes follows the CV charge step (Step 4). Arbin scheduling issues caused variable resting time between cycles in some periods."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_surface",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "xlsx",
+        "mat"
+      ],
+      "data_structure": "hierarchical_folders",
+      "data_size_gb": 248.9,
+      "data_quality_notes": "Raw .xlsx files must be merged for cycling tests. Processed .mat files (~6.3% of raw size) are provided. Only 'Channel*' sheets in .xlsx are valid for capacity, HPPC, and cycling tests; only 'ACIM_Chan*' sheets are valid for EIS. Temperature signals require careful validation per README.",
+      "known_issues": "EIS diagnostic tests missing for cells W4, W5, W7, and G1 due to Gamry EIS 1010E equipment issues. Anomalous high impedance led to early termination of cell W3. Cell W7 terminated due to physically inconsistent impedance trends. Elevated output voltage profiles (likely equipment issues) observed for W4 (Cycling_3, 6, 7), W5 (Cycling_3), W7 (Cycling_2, 3). Variable rest times between cycles due to Arbin scheduling issues (Diag_5 to Diag_8 for W4, W5, W8, W9, W10; Diag_3 to Diag_4 for G1, V4, V5)."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "hppc",
+        "eis"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "resistance_dc",
+        "impedance_ac",
+        "eis_nyquist"
+      ],
+      "interval": {
+        "value": 25,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        23
+      ],
+      "charge_crates": [
+        0.05
+      ],
+      "soc_levels_pct": [
+        20,
+        50,
+        80,
+        100
+      ],
+      "notes": "Capacity test at C/20 CC discharge from 100% SOC. HPPC at multiple SOC levels. EIS at 20%, 50%, and 80% SOC between 0.01 Hz and 10 kHz. First RPT (Diag_1) on pristine cells before aging begins. Some cells have RPTs every 50 cycles instead of 25 (e.g., G1, V4, V5 which started later)."
+    }
+  },
+  "notes": "Dataset collects EV real-driving aging data for 10 LG Chem INR21700-M50T NMC cells at Stanford Energy Control Lab. Each aging cycle consists of: CC-CV charge at variable C-rate to 4.2 V, followed by CC discharge at C/4 from 100% to 80% SOC, then UDDS drive cycle discharge from 80% to 20% SOC. Charging C-rates are C/4, C/2, 1C, and 3C (one or two cells per condition). The dataset is the first of its kind providing battery aging data from EV real-driving scenarios according to the authors. OSF DOI: osf.io/qsabn."
+}

@@ -1,0 +1,180 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Multi-Stage Lithium Ion Battery Aging Study (BaPoBs - Samsung INR21700-50E)",
+    "short_name": "2024_BaPoBs_Samsung50E_21700",
+    "year": 2024,
+    "paper_url": "https://www.nature.com/articles/s41597-024-03859-z",
+    "data_url": "https://doi.org/10.6084/m9.figshare.25975315",
+    "license": "CC-BY-4.0",
+    "institution": "Munich University of Applied Sciences (HM) / ISES; Siemens AG; Hoppecke Systemtechnik GmbH",
+    "country": "DE",
+    "authors": [
+      "Florian Stroebl",
+      "Ronny Petersohn",
+      "Barbara Schricker",
+      "Florian Schaeufl",
+      "Oliver Bohlen",
+      "Herbert Palm"
+    ],
+    "contact_email": "oliver.bohlen@hm.edu",
+    "citation": "Stroebl, F. et al. A multi-stage lithium-ion battery aging dataset using various experimental design methodologies. Scientific Data 11, 1020 (2024). https://doi.org/10.1038/s41597-024-03859-z",
+    "funding": "German Federal Ministry for Economic Affairs and Energy (BaPoBs project); Deutsche Forschungsgemeinschaft (DFG), project number 512819356"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "Samsung INR21700-50E",
+      "manufacturer": "Samsung_SDI",
+      "form_factor": "cylindrical_21700",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 4.9,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "https://e2e.ti.com/cfs-file/__key/communityserver-components-files/196/INR21700_2D00_50E-Cell-Specification_5F00_V1.0_5F00_180711.pdf",
+      "cell_notes": "Maximum charge current 4.9 A (1C); maximum discharge current 9.8 A (2C). Cell weight measured at delivery and recorded in experiments_meta.csv."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "mixed_cycling_calendar"
+      ],
+      "constant_halfcycle": "both",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 279,
+      "replicate_cells_min": 3,
+      "replicate_cells_max": 6,
+      "num_unique_conditions": 71,
+      "eol_criteria": "none_ongoing",
+      "eol_threshold_pct": null,
+      "notes": "Two-stage multi-DoE design. Stage 1: full-factorial (FF) and conditioned Latin hypercube (cLH) sampling for calendar (11 TPs) and cycle (25 TPs) aging respectively. Stage 2: pi-OED (model-based parameter individual optimal experimental design) plus a second non-model-based exploration study for calendar (4+3+4 TPs) and cycle (12+12 TPs) aging. Each test point (TP) typically repeated with 3 cells (01-03); some calendar TPs additionally tested with cells 04-06 (ET/AT only, no regular RPTs during aging). 279 cells tested under 93 different conditions across 71 distinct aging test points. Both calendar and cycle aging included."
+    },
+    "electrical": {
+      "cycling_range_basis": "SOC",
+      "cycling_ranges": [],
+      "storage_level_basis": "SOC",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.05,
+        1.0
+      ],
+      "discharge_crates": [
+        0.05,
+        2.0
+      ],
+      "cv_cutoff_current_c": [
+        0.05
+      ],
+      "charge_protocol": [
+        "CC"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        10,
+        23,
+        35,
+        45
+      ],
+      "temperature_storage_c": [
+        10,
+        23,
+        35,
+        45
+      ],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 24,
+      "total_cycles_approx": 4000,
+      "rest_between_halfcycles_min": [
+        25
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": true,
+      "test_equipment": "BaSyTec GSM, BaSyTec XCTS, BaSyTec CTS Lab, BaSyTec CTS (various models across three labs: Siemens, Hoppecke/Intilion, Munich University of Applied Sciences); BaSyTest Control Software V6.2.53",
+      "notes": "Each of the two stages was planned for approximately one year. Data time axis extends to ~400 days for calendar aging and ~4000 FEC for cycle aging. Cells connected to testers only during RPTs and cycling; calendar aging cells disconnected between RPTs to simulate open-loop storage. Sampling recorded as HH:mm:ss.SSS (sub-second resolution). Total dataset ~9.59 GB compressed, ~100 GB uncompressed."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_surface",
+        "temperature_ambient"
+      ],
+      "file_formats": [
+        "csv",
+        "txt"
+      ],
+      "data_structure": "hierarchical_folders",
+      "data_size_gb": 9.59,
+      "data_quality_notes": "All files include a step_type column for easy extraction of specific test sections. A *_meta.txt companion file accompanies each measurement file with metadata (lab ID, cell serial, TP ID, measurement start date, device, channel, chamber, temperature setpoint, cell position). An experiments_meta.csv overview file covers all cells.",
+      "known_issues": "Multiple known incidents documented in the paper including tester malfunctions, lab blackouts, climate chamber downtime, and cell holder connection failures affecting specific test points in both Stage 1 and Stage 2. Individual corrupt files may be present; authors recommend dropping these prior to processing unless outlier analysis is intended."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "pseudo_ocv",
+        "hppc",
+        "resistance_dc"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "ocv_curve",
+        "resistance_dc"
+      ],
+      "interval": {
+        "value": 4,
+        "unit": "weeks"
+      },
+      "temperature_c": [
+        10,
+        23,
+        45
+      ],
+      "charge_crates": [
+        0.5,
+        0.05
+      ],
+      "soc_levels_pct": [
+        5,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        95
+      ],
+      "notes": "Three RPT types used: Initial/Final Check-Up (ET/AT, ~220 h, at Tamb = 10, 23, 45 C): capacity (CCCV), pOCV curves in both directions, HPPC at SOC 5-95%; Extended Check-Up (exCU, ~30 h, at Tamb = 23 C): capacity + HPPC at multiple SOCs; Standard Check-Up (CU, ~15 h, at Tamb = 23 C): capacity + HPPC at 50% SOC only. DCIR extracted from 1C discharge pulse at 50% SOC. Calendar aging RPT schedule: 5W-4W-8W-8W intervals (Stage 1); cycle aging RPT schedule: 1W-1W-1W-2W-2W-2W-4W-4W-4W-4W intervals. Scope of RPTs was varied throughout to minimize impact on cell degradation. Three full-cycles at 23 C performed before ET as break-in."
+    }
+  },
+  "notes": "The BaPoBs dataset is a large-scale, multi-stage battery aging study specifically designed to validate and compare design-of-experiments (DoE) methodologies including full-factorial, conditioned Latin hypercube, and model-based pi-OED approaches. Aging factors studied: ambient temperature (Tamb), maximum state of charge (SOCmax), depth of discharge (DOD), charge C-rate (C_ch), and discharge C-rate (C_dch). Charge/discharge C-rates for cycling constrained by manufacturer datasheet to C_ch in [0.05, 1] and C_dch in [0.05, 2]; SOC during cycling kept within 20-80% to maintain CC operation and avoid CV phases. Calendar aging cells stored at open-circuit in climate chambers with SOC set via CCCV charging prior to storage intervals. Stage 2 calendar aging capped SOCmax at 80% due to non-monotonic behavior observed above 80% in Stage 1. Three institutions participated: Siemens (SIE, Zwickau), Hoppecke/Intilion (INT), and Munich University of Applied Sciences (HM, Munich). Data available on Figshare under CC BY 4.0. Python analysis scripts and Jupyter notebook available at https://github.com/fst2112/Multi-Stage-Lithium-Ion-Battery-Aging-Dataset-Analysis."
+}

@@ -1,0 +1,179 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "EVERLASTING D2.3 – Aging test profiles and test results on commercial 18650 Li-ion cell (LGChem INR18650 MJ1)",
+    "short_name": "2020_EVERLASTING_LGChem-MJ1_18650",
+    "year": 2020,
+    "paper_url": "https://everlasting-project.eu/wp-content/uploads/2020/03/EVERLASTING_D2.3_final_20200228.pdf",
+    "data_url": "https://data.4tu.nl/datasets/3b2f7917-0448-4860-8ab9-579e8874429d",
+    "license": "CC-BY-NC-4.0",
+    "institution": "VITO/EnergyVille; TUV SUD Battery Testing GmbH",
+    "country": "BE",
+    "authors": [
+      "Khiem Trad",
+      "Jaykanth Govindarajan",
+      "Klaas De Craemer"
+    ],
+    "contact_email": "khiem.trad@vito.be",
+    "citation": "Trad, K.; Govindarajan, J. (2020). D2.3 – Report containing aging test profiles and test results. EVERLASTING Project (H2020 Grant Agreement No 713771), VITO/EnergyVille.",
+    "funding": "European Commission Horizon 2020, grant agreement No 713771 (EVERLASTING: Electric Vehicle Enhanced Range, Lifetime And Safety Through INGenious battery management)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "INR18650 MJ1",
+      "manufacturer": "LG_Chem",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC811",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.5,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": 259.6,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "https://www.nkon.nl/sk/k/Specification%20INR18650MJ1%2022.08.2014.pdf",
+      "cell_notes": "Voltage window 2.5–4.2 V per manufacturer datasheet. Cell chemistry confirmed by project analysis: Ni-rich NMC811 positive electrode and Si/graphite-based negative electrode."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric",
+        "cycling_drive_cycle",
+        "mixed_cycling_calendar",
+        "calendar"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "partial_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 70,
+      "replicate_cells_min": 2,
+      "replicate_cells_max": 2,
+      "num_unique_conditions": 35,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "Dataset comprises three test campaigns: (1) lifecycle cycling with continuous CC-CV charge and CC discharge at varied C-rates and temperatures (VITO at 25°C/45°C on PEC tester; TUV SUD at 0°C/10°C on Maccor tester); (2) lifecycle cycling with real driving profiles recorded by VOLTIA from their electric van (TUV SUD at 0°C/5°C/10°C on Scienlab tester; VITO at 25°C/45°C on PEC tester); (3) calendar aging at OCV at fixed SOC and temperature (VITO at 25°C/45°C; TUV SUD at 0°C/10°C). All conditions use 2 replicate cells. Life cycling tests at 0°C and 10°C were interrupted for laboratory renovation (100+ cumulative days of uncontrolled rest) and were not restarted. 3C discharge at 45°C was stopped due to over-temperature alarms (cell surface exceeded 55°C). Total: 70 cells across 35 unique conditions (9 drive profile + 14 lifecycle + 12 calendar), per Deliverable D2.3 Tables 1-4."
+    },
+    "electrical": {
+      "cycling_range_basis": "soc",
+      "cycling_ranges": [
+        "10-90",
+        "70-90"
+      ],
+      "storage_level_basis": "soc",
+      "storage_levels": [
+        10,
+        70,
+        90
+      ],
+      "dod_pct": [],
+      "charge_crates": [
+        0.5,
+        1.0
+      ],
+      "discharge_crates": [
+        0.5,
+        1.5,
+        3.0
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "drive_cycle"
+      ],
+      "drive_cycle_profiles": [
+        "custom_recorded"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        0,
+        5,
+        10,
+        25,
+        45
+      ],
+      "temperature_storage_c": [
+        0,
+        10,
+        25,
+        45
+      ],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 14,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "PEC battery tester (VITO); Maccor battery tester (TUV SUD lifecycle); Scienlab battery tester (TUV SUD drive profile)",
+      "notes": "Life cycling tests lasted around 350 days at time of report writing (February 2020). Calendar aging data shown up to ~425 days. EOL (80% SoH) was reached by only 4 cells (at 25°C and 45°C) within the observation period. Cells cycling at 0°C reached EOL after 286 equivalent cycles."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "time",
+        "voltage",
+        "current",
+        "temperature_cell",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "VITO lifecycle files are large single-cell AllData CSV files (~400–800 MB each). TUV SUD files are split into multiple sequential segment files (~65–100 MB each, up to 6 per cell). Total unzipped size: ~2.9 GB (TUV dataset, 44 files) and ~9.7 GB (VITO dataset, 19 files).",
+      "known_issues": "Lifecycle tests at 0°C and 10°C (TUV SUD) were interrupted for 100+ cumulative days due to laboratory renovation; cells showed anomalous behavior (extended CV phase, apparent capacity above nominal) and tests were discontinued. 3C discharge cycling at 45°C was stopped due to over-temperature alarms."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "resistance_pulse",
+        "ocv_curve",
+        "custom"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_pulse",
+        "ocv_curve",
+        "soh"
+      ],
+      "interval": {
+        "value": null,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        0.05,
+        0.2,
+        0.5,
+        1.0,
+        2.0
+      ],
+      "soc_levels_pct": [],
+      "notes": "Two check-up types used: Short Check-Up (SCU) performed at regular intervals; Extended Check-Up (ECU) performed at start, mid-life, and end (SoH=80%). Both include a nominal 1C capacity test and 30-second 1C charge/discharge pulse tests at multiple SOC levels. ECU additionally includes a DST test, C/20 capacity test, and discharge capacity tests at C/5, C/2, and 2C. A stabilization period of 8–24 hours is applied before and after each check-up. Check-ups performed at 25°C. SOC cycling window updated after each check-up using the latest discharge capacity value."
+    }
+  },
+  "notes": "This dataset is the output of the EVERLASTING H2020 EU project (Grant No 713771, 01/09/2016–31/08/2020). It covers three aging campaigns on the LGChem INR18650 MJ1 cell: (1) continuous CC-CV lifecycle cycling at varied C-rates and temperatures, (2) drive-profile cycling using real VOLTIA e-van profiles at varied temperatures, and (3) calendar aging at OCV at three SOC levels and four temperatures. Data is hosted across multiple 4TU.ResearchData sub-datasets: lifecycle at 25°C/45°C (DOI: 10.4121/13739296), lifecycle at 0°C/10°C (DOI: 10.4121/14377295), and the main collection (DOI: 10.4121/14377184). A Mendeley mirror is also available at https://data.mendeley.com/datasets/kw34hhw7xg/3. Drive cycle profiles are custom real-world recordings from the VOLTIA electric van (city pattern for 70–90% SOC window; combined city/highway/intermediate for 10–90% SOC window)."
+}

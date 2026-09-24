@@ -1,0 +1,189 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "UofM Pouch Cell Voltage and Expansion Cyclic Aging Dataset",
+    "short_name": "2021_MICH_Exp_Pouch",
+    "year": 2021,
+    "paper_url": "https://iopscience.iop.org/article/10.1149/1945-7111/ac2d3e",
+    "data_url": "https://deepblue.lib.umich.edu/data/concern/data_sets/5d86p0488",
+    "license": "CC-BY-4.0",
+    "institution": "University of Michigan",
+    "country": "US",
+    "authors": [
+      "Peyman Mohtat",
+      "Suhak Lee",
+      "Jason B. Siegel",
+      "Anna G. Stefanopoulou"
+    ],
+    "contact_email": "siegeljb@umich.edu",
+    "citation": "Mohtat, P., Siegel, J. B., Stefanopoulou, A. G., Lee, S. (2021). UofM Pouch Cell Voltage and Expansion Cyclic Aging Dataset [Data set], University of Michigan - Deep Blue Data. https://doi.org/10.7302/7tw1-kc35",
+    "funding": "National Science Foundation grant No. 1762247; Automotive Research Center (ARC) Cooperative Agreement W56HZV-14-2-0001 U.S. Army CCDC GVSC"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "NMC111",
+      "anode_chemistry": "graphite",
+      "electrolyte": "1 M LiPF6 in EC:EMC (3:7) with 2% additive",
+      "separator": "Polyethylene (PE)",
+      "nominal_capacity_ah": 5.0,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 103.75,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": 132.0,
+        "width": 90.0,
+        "height": 4.0
+      },
+      "datasheet_url": "",
+      "cell_notes": "Custom-built pouch cell fabricated at University of Michigan Battery Lab (UMBL). Positive electrode: NMC111:CB:PVDF (94:3:3), 14 double-sided sheets, 18.5 mg/cm2 loading, 67 um thick. Negative electrode: Graphite:PVDF (95:5), 15 double-sided sheets, 8.55 mg/cm2 loading, 62 um thick. Operating voltage 3.0-4.2 V. Volume 47.52 cm3. Cells manufactured in one batch to minimize cell-to-cell variation (std ~1.2% of nominal capacity)."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric",
+        "cycling_variable",
+        "cycling_drive_cycle"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "partial_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 31,
+      "replicate_cells_min": 1,
+      "replicate_cells_max": 3,
+      "num_unique_conditions": 13,
+      "eol_criteria": "capacity_70pct",
+      "eol_threshold_pct": 70,
+      "notes": "7 condition groups (A-G) each with 3 cells at room (25 C), cold (-5 C), and hot (45 C) temperatures (21 cells); plus group H (10 cells) studying pressure effects at 45 C with varying applied pressures (1-25 PSI / 6.9-172.4 kPa) at 2C/2C, 0-100% DOD. Cells cycled to at least 70% capacity retention. Pressure applied via custom fixture with compression springs maintaining pseudo-constant pressure. Test date coverage: 2019-03-01 to 2020-08-01."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.0-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        50,
+        100
+      ],
+      "charge_crates": [
+        0.2,
+        1.5,
+        2.0
+      ],
+      "discharge_crates": [
+        0.2,
+        1.5,
+        2.0
+      ],
+      "cv_cutoff_current_c": [
+        0.02
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "drive_cycle"
+      ],
+      "drive_cycle_profiles": [
+        "UDDS",
+        "HWFET",
+        "US06"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        -5.0,
+        25.0,
+        45.0
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": 0.1,
+      "sampling_rate_variable": false,
+      "test_equipment": "Biologic BTS-815",
+      "notes": "Data sampled at 10-second intervals (0.1 Hz) for both cycling (Biologic BT-Lab software via LAN) and expansion (custom LabView program via serial port). Cells held at rest 3 hours before each test for thermal equilibrium. Test date coverage 2019-03-01 to 2020-08-01."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_surface",
+        "capacity_charge",
+        "capacity_discharge",
+        "custom"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 0.584,
+      "data_quality_notes": "Four CSV files per cell: cycling_wExpansion.csv, OCV_wExpansion.csv, Crate_wExpansion.csv, Resistance.csv. Expansion (cell thickness displacement in micrometers) recorded as additional custom variable alongside standard electrical signals.",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "pseudo_ocv",
+        "hppc",
+        "eis",
+        "custom"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "impedance_ac",
+        "eis_nyquist",
+        "ocv_curve"
+      ],
+      "interval": {
+        "value": 5,
+        "unit": ""
+      },
+      "temperature_c": [
+        25.0
+      ],
+      "charge_crates": [
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0
+      ],
+      "soc_levels_pct": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "notes": "RPT performed after a number of cycles corresponding to an expected 5% capacity loss. RPT includes: (1) C/20 charge-discharge cycle (pseudo-OCV); (2) HPPC with 1C pulses (10 s discharge, 10 min rest, 10 s discharge) at 10% SOC intervals from 100% to 0% SOC, with EIS at 10 mHz-10 kHz at each SOC point; (3) C-rate dependency test with CC charges at C/10, C/5, C/2, and 1C. All RPTs performed at room temperature (25 C). Checkup interval is approximately every 5% capacity loss."
+    }
+  },
+  "notes": "This dataset focuses on the simultaneous measurement of electrical and mechanical (cell thickness expansion) response of custom-built NMC111/graphite pouch cells under a wide range of cycling stress conditions. A specialized fixture maintained pseudo-constant pressure (~34.5 kPa / 5 PSI for most groups) using compression springs. The pressure study group (H) tested 6.9, 34.5, 68.9, 103.4, 137.9, and 172.4 kPa at 45 C with 2C charge/discharge. The drive cycle for group G is a synthetic urban commute combining UDDS, HWFETx2, US06x2, HWFETx2, UDDS at 50% DOD. Both reversible (intercalation-induced) and irreversible (SEI/plating/cracking) expansion components are tracked. Data also available via DOI: https://doi.org/10.7302/7tw1-kc35."
+}

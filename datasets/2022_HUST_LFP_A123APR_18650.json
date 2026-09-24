@@ -1,0 +1,154 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "The Dataset for: Real-time personalized health status prediction of lithium-ion batteries using deep transfer learning",
+    "short_name": "2022_HUST_LFP_A123APR_18650",
+    "year": 2022,
+    "paper_url": "https://pubs.rsc.org/en/content/articlelanding/2022/ee/d2ee01676a",
+    "data_url": "https://data.mendeley.com/datasets/nsc7hnsg4s/2",
+    "license": "CC-BY-4.0",
+    "institution": "Huazhong University of Science and Technology",
+    "country": "CN",
+    "authors": [
+      "Guijun Ma",
+      "Songpei Xu",
+      "Benben Jiang",
+      "Cheng Cheng",
+      "Xin Yang",
+      "Yue Shen",
+      "Tao Yang",
+      "Yunhui Huang",
+      "Han Ding",
+      "Ye Yuan"
+    ],
+    "contact_email": "yye@hust.edu.cn",
+    "citation": "Yuan, Ye; Ma, Guijun; Xu, Songpei (2022), \"The Dataset for: Real-time personalized health status prediction of lithium-ion batteries using deep transfer learning\", Mendeley Data, V2, doi: 10.17632/nsc7hnsg4s.2",
+    "funding": "National Key R&D Program of China (Grant 2018YFB1701202); National Natural Science Foundation of China (Grant 92167201)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "APR18650M1A",
+      "manufacturer": "A123",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "LFP",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.1,
+      "nominal_voltage_v": 3.3,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": ""
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": false,
+    "aging_modes": {
+      "types": [
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 77,
+      "replicate_cells_min": 1,
+      "replicate_cells_max": 1,
+      "num_unique_conditions": 77,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "77 cells each cycled with a unique multi-stage discharge protocol; identical fast-charging protocol applied to all cells. 55 cells used for training, 22 for testing. 3 of 80 originally prepared cells excluded due to sudden faults before degradation failure. Total of 146,122 discharge cycles recorded across all cells."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.0-3.6"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        100
+      ],
+      "charge_crates": [
+        1.0,
+        5.0
+      ],
+      "discharge_crates": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "cv_cutoff_current_c": [
+        0.05
+      ],
+      "charge_protocol": [
+        "MCC",
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        30
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 146122,
+      "rest_between_halfcycles_min": [
+        0.5
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Neware CT-4008 (80-channel battery tester)",
+      "notes": "Cycle lives range from 1100 to 2700 cycles (average 1898, std 387). Rest time between arbitrary discharge steps was 30 s. Cells cycled until maximum capacity first reached 80% of nominal capacity."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_discharge",
+        "capacity_charge"
+      ],
+      "file_formats": [
+        "neware"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 1.09,
+      "data_quality_notes": "",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [],
+      "recorded_variables": [],
+      "interval": {
+        "value": null,
+        "unit": ""
+      },
+      "temperature_c": [],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": ""
+    }
+  },
+  "notes": "Charge protocol (identical for all cells): CC at 5C from 0% to 80% SOC, then CC at 1C from 80% SOC to 3.6 V, then CV at 3.6 V until 100% SOC with a current cutoff of C/20. Discharge protocol (unique per cell): 4-step multi-stage CC from 100% to 0% SOC with voltage cutoff of 2 V; the first three steps discharge from 100%→60%, 60%→40%, 40%→20% SOC at variable C-rates drawn from {1C, 2C, 3C, 4C, 5C}; the last step always discharges from 20%→0% SOC at 1C. Example protocol: 5C-4C-3C-1C. The paper also references two external public datasets used for transfer learning validation: the Severson et al. (Nat. Energy, 2019) LFP dataset and the Preger et al. (J. Electrochem. Soc., 2020) NMC/graphite dataset, which are NOT part of this deposit."
+}

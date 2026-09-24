@@ -1,0 +1,199 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Aging matrix visualizes complexity of battery aging across hundreds of cycling protocols",
+    "short_name": "2025_STAN_Multi_18650",
+    "year": 2025,
+    "paper_url": "https://doi.org/10.1039/D4EE05609D",
+    "data_url": "https://doi.org/10.17605/OSF.IO/JU325",
+    "license": "CC-BY-4.0",
+    "institution": "Stanford University",
+    "country": "US",
+    "authors": [
+      "Bruis van Vlijmen",
+      "Vivek N. Lam",
+      "Patrick A. Asinger",
+      "Xiao Cui",
+      "Joachim Schaeffer",
+      "Alexis Geslin",
+      "Devi Ganapathi",
+      "Shijing Sun",
+      "Patrick K. Herring",
+      "Chirranjeevi Balaji Gopal",
+      "Natalie Geise",
+      "Haitao D. Deng",
+      "Henry L. Thaman",
+      "Stephen Dongmin Kang",
+      "Steven B. Torrisi",
+      "Amalie Trewartha",
+      "Abraham Anapolsky",
+      "Brian D. Storey",
+      "William E. Gent",
+      "Richard D. Braatz",
+      "William C. Chueh"
+    ],
+    "contact_email": "wchueh@stanford.edu",
+    "citation": "B. van Vlijmen et al., Energy Environ. Sci., 2025, 18, 6641-6654. DOI: 10.1039/D4EE05609D",
+    "funding": "Toyota Research Institute (Accelerated Materials Design and Discovery program); National Science Foundation Graduate Research Fellowship; Stanford Data Science Scholars Program; U.S. Department of Defense National Defense Science & Engineering Graduate Fellowship Program"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "cylindrical_21700",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 4.84,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Li(Ni,Co,Al)O2/graphite + SiOx cylindrical 21700 cells. Anode contains silicon oxide (SiOx) in addition to graphite."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 359,
+      "replicate_cells_min": null,
+      "replicate_cells_max": null,
+      "num_unique_conditions": 207,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "207 unique cycling protocols spanning diverse voltage windows and C-rates. EOL defined as 0.2C RPT capacity reaching 80% of 4.84 Ah nominal capacity (3.872 Ah). EFCs at EOL range from 44 to 994. Cycled over 2 years."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.7-4.2",
+        "2.7-4.1",
+        "2.7-4.0",
+        "2.7-3.9",
+        "2.7-3.8",
+        "2.7-3.7",
+        "2.8-4.2",
+        "2.9-4.2",
+        "3.0-4.2",
+        "3.1-4.2",
+        "3.2-4.2",
+        "3.3-4.2",
+        "3.4-4.2",
+        "3.5-4.2",
+        "3.6-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "discharge_crates": [
+        0.2,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "MCC",
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 24,
+      "total_cycles_approx": 4641,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "",
+      "notes": "Diagnostic cycle performed every 100 aging cycles. Total raw cycles up to 4641 (or up to 994 EFC). Temperature not varied; all cells cycled at 25°C chamber set point. CV hold duration varied from 30 to 90 min (t_CV). Two-step CC charge: CC1 (0.2-2C) followed by CC2 (0.2-1C), with CC_discharge (0.2-3C), V_charge (3.7-4.2V), V_discharge (2.7-3.7V)."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "mixed",
+      "data_size_gb": null,
+      "data_quality_notes": "Raw data structured via the BEEP pipeline. Separate raw (V/I timeseries) and summary (capacity, resistance) files provided.",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "hppc",
+        "ocv_curve"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "ocv_curve"
+      ],
+      "interval": {
+        "value": 100,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        0.2
+      ],
+      "soc_levels_pct": [
+        50
+      ],
+      "notes": "Diagnostic cycle consists of: reset cycle, HPPC, and three rate reference performance tests (RPT) at 0.2C, 1C, and 2C discharge currents. Resistances reported at 50% SOC by default. Diagnostic cycle applied every 100 aging cycles throughout cell lifetime."
+    }
+  },
+  "notes": "Dataset accompanies the paper introducing an 'aging matrix' framework combining interpretable ML (random forest + SHAP) with 16 mechanistic SOH metrics to visualize battery degradation across 207 cycling protocols. Six cycling parameters are varied: CC1 (first-step charge C-rate, 0.2-2C), CC2 (second-step charge C-rate, 0.2-1C), CC_discharge (0.2-3C), V_charge (3.7-4.2V), V_discharge (2.7-3.7V), t_CV (CV hold time, 30-90 min). Mechanistic SOH metrics include cell-level performance metrics, electrode-specific capacities/SOCs (via DVF algorithm), and trajectory metrics (knee indicator, resistance growth factor, NP ratio). Code available at https://data.matr.io/11/ and https://github.com/viveklam/Joule-Decade-Calendar-Aging. Patent filed: US Application No. 20220137149A1 (15 May 2022)."
+}

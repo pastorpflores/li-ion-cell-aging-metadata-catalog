@@ -1,0 +1,143 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Oxford Battery Degradation Dataset 1",
+    "short_name": "2017_OXF",
+    "year": 2017,
+    "paper_url": "",
+    "data_url": "https://ora.ox.ac.uk/objects/uuid:03ba4b01-cfed-46d3-9b1a-7d4a7bdf6fac",
+    "license": "unknown",
+    "institution": "University of Oxford",
+    "country": "GB",
+    "authors": [
+      "Howey, D",
+      "Birkl, C"
+    ],
+    "contact_email": "david.howey@eng.ox.ac.uk",
+    "citation": "Birkl, C.R., 'Diagnosis and Prognosis of Degradation in Lithium-Ion Batteries', PhD thesis, University of Oxford, 2017. DOI: 10.5287/bodleian:KO2kdmYGg",
+    "funding": "EPSRC EP/K504518/1; Jaguar Land Rover"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "SLPB533459H4",
+      "manufacturer": "Kokam",
+      "form_factor": "pouch_small",
+      "cathode_chemistry": "LCO",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 0.74,
+      "nominal_voltage_v": 3.7,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 19.5,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": 33.5,
+        "width": 5,
+        "height": 58.5
+      },
+      "datasheet_url": "",
+      "cell_notes": "Kokam CO LTD SLPB533459H4, 740 mAh lithium-ion pouch cell"
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": false,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_drive_cycle"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "unknown",
+      "num_cell_types": 1,
+      "num_cells_total": 8,
+      "replicate_cells_min": 8,
+      "replicate_cells_max": 8,
+      "num_unique_conditions": 1,
+      "eol_criteria": "\"capacity_0.8\"",
+      "eol_threshold_pct": 0.8,
+      "notes": "All 8 cells tested under identical conditions (same temperature, charge and discharge protocol)"
+    },
+    "electrical": {
+      "cycling_range_basis": "",
+      "cycling_ranges": [],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        1
+      ],
+      "discharge_crates": ["N/A"],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "drive_cycle"
+      ],
+      "drive_cycle_profiles": [
+        "Artemis_urban"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        40
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "thermal_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 24,
+      "total_cycles_approx": 8000,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Bio-Logic MPG-205, 8 channel; Binder thermal chamber",
+      "notes": "Data collected from 2015-01-08 to 2016-12-31. Total number of drive cycles not explicitly stated."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "capacity_charge",
+        "temperature_surface"
+      ],
+      "file_formats": [
+        "mat"
+      ],
+      "data_structure": "single_file_per_test",
+      "data_size_gb": 0.266,
+      "data_quality_notes": "Main file (253.8 MB) contains characterization data only. ExampleDC_C1.mat (70.9 KB) contains raw V/I/T timeseries for the first drive cycle only.",
+      "known_issues": "Full per-cycle raw timeseries for all cycling is not available; only the first cycle is provided as an example."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "pseudo_ocv"
+      ],
+      "recorded_variables": [
+        "voltage",
+        "capacity_charge",
+        "capacity_discharge",
+        "temperature_surface"
+      ],
+      "interval": {
+        "value": 100,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        40
+      ],
+      "charge_crates": [
+        1.0
+      ],
+      "soc_levels_pct": [],
+      "notes": "Characterization every 100 drive cycles. Includes 1C charge/discharge cycles and pseudo-OCV cycles (at 40 mA = ~C/18.5). Variables recorded: time, voltage, charge, temperature."
+    }
+  },
+  "notes": "The dataset is primarily a checkup/characterization dataset. The main .mat file contains hierarchical data: Layer 1 = cells (1-8), Layer 2 = cycle number (e.g. cyc0100), Layer 3 = 1C charge (C1ch), 1C discharge (C1dc), pseudo-OCV charge (OCVch), pseudo-OCV discharge (OCVdc), Layer 4 = t, v, q, T. License is ODC Open Database License (ODbL); no direct SPDX identifier in controlled vocabulary, mapped to 'unknown'. Charge rate of 2C stated in ExampleDC_C1.mat description; checkup uses 1C. Voltage cycling range not stated in available documents."
+}

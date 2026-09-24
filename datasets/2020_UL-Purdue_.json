@@ -1,0 +1,152 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Degradation-Safety Analytics in Lithium-Ion Cells: Part I. Aging under Charge/Discharge Cycling",
+    "short_name": "2020_UL-Purdue",
+    "year": 2020,
+    "paper_url": "https://iopscience.iop.org/article/10.1149/1945-7111/abc8c0/meta",
+    "data_url": "https://www.batteryarchive.org/study_summaries.html",
+    "license": "unknown",
+    "institution": "Purdue University; Underwriters Laboratories Inc.",
+    "country": "US",
+    "authors": [
+      "Daniel Juarez-Robles",
+      "Judith A. Jeevarajan",
+      "Partha P. Mukherjee"
+    ],
+    "contact_email": "",
+    "citation": "Daniel Juarez-Robles et al 2020 J. Electrochem. Soc. 167 160510. DOI: 10.1149/1945-7111/abc8c0",
+    "funding": "Underwriters Laboratories Inc. (UL)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "NCR18650B",
+      "manufacturer": "Panasonic",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "Dual-layer: one side with Al2O3 ceramic coating, one side without ceramic coating",
+      "nominal_capacity_ah": 3.4,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": 44.0,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Rated capacity 3.4 Ah (minimum 3.2 Ah when discharged to 2.7 V). Recommended safe operating voltage 2.7 to 4.2 V per manufacturer. No PCB (protective circuit board) included within the cell. Initial capacity of fresh cells ranged from 3.03 to 3.24 Ah (normal VW) and 2.52 to 2.61 Ah (reduced VW) after conditioning."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "both",
+      "study_design": "full_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 21,
+      "replicate_cells_min": 3,
+      "replicate_cells_max": 3,
+      "num_unique_conditions": 2,
+      "eol_criteria": "capacity_custom",
+      "eol_threshold_pct": null,
+      "notes": "Two voltage windows studied: normal (EN = [2.7, 4.2] V, 0-100% SOC) and reduced (ER = [2.9, 4.0] V, 2.5-96.5% SOC when fresh). Cells cycled to capacity fade targets of 10%, 15%, and 20% (i.e., SOH of 90%, 85%, 80%). Three cells allotted to each capacity fade percentage per voltage window (9 cells per voltage window, 18 aged cells total; README states 21 cells). After reaching the target fade, cells underwent abuse tests (overcharge or external short) or no abuse (NA). Cells labeled NA were not subjected to any abuse test. Average internal resistance of 25 fresh cells was ~44 mOhm at 50% SOC."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.7-4.2",
+        "2.9-4.0"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.5
+      ],
+      "discharge_crates": [
+        0.5
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        23
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "room_temperature",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 799,
+      "rest_between_halfcycles_min": [
+        30
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Arbin BT2543-5V-5A-16",
+      "notes": "Cycling conducted at ambient temperature (~23 °C). Normal VW cells reached 20% CF in up to ~305 cycles (~90 days). Reduced VW cells reached 20% CF in up to ~799 cycles (~143 days). CV cutoff current for charge: 50 mA. Internal resistance measured via 1.5C (5.1 A), 100 ms pulse at 50% DOD during discharge. Conditioning test: 3 cycles between 2.7 and 4.2 V at 1C before aging."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_surface",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [],
+      "data_structure": "",
+      "data_size_gb": null,
+      "data_quality_notes": "",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "resistance_pulse",
+        "dva"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "dq_dv"
+      ],
+      "interval": {
+        "value": 1,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        23
+      ],
+      "charge_crates": [
+        0.5
+      ],
+      "soc_levels_pct": [
+        50
+      ],
+      "notes": "Capacity fade tracked each cycle by comparing discharge capacity to initial capacity from second conditioning cycle. Internal resistance measured via 100 ms pulse at 1.5C (5.1 A) applied at 50% DOD during the discharge step. dV/dQ differential voltage analysis performed at selected capacity fade milestones (0%, 5%, 10%, 15%, 20% CF). Conditioning test performed before and after cycling using same CCCV/CC protocol."
+    }
+  },
+  "notes": "This is Part I of a three-part publication series. Part I focuses on aging under charge/discharge cycling. Part II covers the interaction between aging and overcharge abuse. Part III covers the interaction between aging and external short abuse. The dataset includes electrochemical (voltage, current, capacity, internal resistance), thermal (cell surface temperature), and post-mortem (DPA, SEM, EDS) data. Post-mortem analysis confirmed SEI growth and particle cracking (graphite) and delamination (NCA) as primary degradation mechanisms. Data hosted at Battery Archive (batteryarchive.org)."
+}

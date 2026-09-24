@@ -1,0 +1,160 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Data-driven prediction of battery cycle life before capacity degradation",
+    "short_name": "2019_MIT-Toyota_LFP_A123APR_18650",
+    "year": 2019,
+    "paper_url": "https://www.nature.com/articles/s41560-019-0356-8",
+    "data_url": "https://data.matr.io/1/projects/5c48dd2bc625d700019f3204",
+    "license": "CC-BY-4.0",
+    "institution": "Massachusetts Institute of Technology; Stanford University; Toyota Research Institute; Lawrence Berkeley National Lab",
+    "country": "US",
+    "authors": [
+      "Kristen A. Severson",
+      "Peter M. Attia",
+      "Norman Jin",
+      "Nicholas Perkins",
+      "Benben Jiang",
+      "Zi Yang",
+      "Michael H. Chen",
+      "Muratahan Aykol",
+      "Patrick K. Herring",
+      "Dimitrios Fraggedakis",
+      "Martin Z. Bazant",
+      "Stephen J. Harris",
+      "William C. Chueh",
+      "Richard D. Braatz"
+    ],
+    "contact_email": "wchueh@stanford.edu; braatz@mit.edu",
+    "citation": "Severson et al. Data-driven prediction of battery cycle life before capacity degradation. Nature Energy, vol. 4, pp. 383-391 (2019). https://doi.org/10.1038/s41560-019-0356-8",
+    "funding": "Toyota Research Institute (Accelerated Materials Design and Discovery programme); NSF Graduate Research Fellowship DGE-114747; SAIC Innovation Center / Stanford Energy 3.0; US DOE Vehicle Technologies Office Advanced Battery Materials Research Program"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "APR18650M1A",
+      "manufacturer": "A123",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "LFP",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.1,
+      "nominal_voltage_v": 3.3,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "High-power LFP/graphite cells. Manufacturer recommended fast-charging rate: 3.6C CC-CV."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": false,
+    "aging_modes": {
+      "types": [
+        "cycling_fast_charging"
+      ],
+      "constant_halfcycle": "discharge",
+      "study_design": "partial_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 124,
+      "replicate_cells_min": null,
+      "replicate_cells_max": null,
+      "num_unique_conditions": 72,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "Dataset split into three batches (2017-05-12, 2017-06-30, 2018-04-12), approximately 48 cells each. 4 cells excluded due to unexpectedly high measurement noise. Cycle lives range from ~150 to ~2,300 cycles (average 806, std 377). The dataset contains approximately 96,700 cycles total. A small diagnostic subset of cells was also cycled with periodic slow (C/10) cycles at the 1st, 100th and end-of-life cycle for degradation mode analysis (Fig. 4), but this is not a systematic RPT across all cells."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.0-3.6"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        3.6,
+        4.0,
+        4.8,
+        5.0,
+        6.0
+      ],
+      "discharge_crates": [
+        4.0
+      ],
+      "cv_cutoff_current_c": [
+        0.02
+      ],
+      "charge_protocol": [
+        "MCC",
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        30
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "forced_air"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 96700,
+      "rest_between_halfcycles_min": [
+        0.017,
+        1.0,
+        5.0
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": true,
+      "test_equipment": "Arbin LBT (48-channel)",
+      "notes": "Charging time from 0% to 80% SOC ranged from 9 to 13.3 min. Batch-specific rests: 2017-05-12 batch: 1 min rest after 80% SOC, 1 s rest after discharge; 2017-06-30 batch: 5 min rest after 80% SOC and after discharge; 2018-04-12 batch: 5 s rests after 80% SOC, after internal resistance test, and before/after discharge. Internal resistance measured at 80% SOC using 10 pulses of +/-3.6C (pulse width 30 ms for first two batches, 33 ms for third batch)."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_cell",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "mat",
+        "csv",
+        "hdf5"
+      ],
+      "data_structure": "single_file_per_test",
+      "data_size_gb": null,
+      "data_quality_notes": "Cell can temperature measured via Type T thermocouple attached with thermal epoxy; contact quality variable and thermocouple sometimes loses contact during cycling. CSV files exhibit occasional errors in test time and step time (resets to zero mid-cycle); these errors are corrected in the MATLAB struct files. 4C discharge curves standardized by spline fitting and interpolation to 1000 linearly spaced voltage points from 3.5 V to 2.0 V.",
+      "known_issues": "Temperature measurements not perfectly reliable for some cells (4 cells excluded from full model due to temperature probe loss of contact). 4 cells had unexpectedly high measurement noise and were excluded from analysis."
+    },
+    "checkup": {
+      "types": [],
+      "recorded_variables": [],
+      "interval": {
+        "value": null,
+        "unit": ""
+      },
+      "temperature_c": [],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": "No systematic periodic RPT across all cells. A diagnostic subset of cells received slow (C/10) cycles at the 1st, 100th and end-of-life cycle for degradation mode analysis only."
+    }
+  },
+  "notes": "Landmark machine-learning dataset for battery cycle life prediction. 124 commercial LFP/graphite A123 APR18650M1A cells cycled under 72 different fast-charging policies (one-step or two-step CC from 0-80% SOC, average C-rates 3.6C-6C; then 1C CC-CV to 100% SOC; uniform 4C CC-CV discharge to 2.0 V). Tests performed at 30 degrees C in forced convection environmental chamber (Amerex Instruments) on a 48-channel Arbin LBT. Data available as MATLAB structs (.mat / HDF5) and raw CSV files per cell, plus BEEP structured data. Code available at https://github.com/rdbraatz/data-driven-prediction-of-battery-cycle-life-before-capacity-degradation. Published in Nature Energy, May 2019."
+}

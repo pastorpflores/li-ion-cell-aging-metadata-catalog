@@ -1,0 +1,163 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Dataset of NMC battery Tests from CAMP, 2023 Release",
+    "short_name": "2024_ARGONNE_Pouch",
+    "year": 2024,
+    "paper_url": "https://www.sciencedirect.com/science/article/pii/S0378775322001495",
+    "data_url": "https://doi.org/10.18126/s90e-dq90",
+    "license": "unknown",
+    "institution": "Argonne National Laboratory",
+    "country": "US",
+    "authors": [
+      "Ward, Logan",
+      "Kubal, Joseph",
+      "Babinec, Susan J.",
+      "Lu, Wenquan",
+      "Dunlop, Allison",
+      "Trask, Steve",
+      "Polzin, Bryant",
+      "Jansen, Andrew",
+      "Paulson, Noah H."
+    ],
+    "contact_email": "npaulson@anl.gov",
+    "citation": "Ward, Logan, and Kubal, Joseph, and Babinec, Susan J., and Lu, Wenquan, and Dunlop, Allison, and Trask, Steve, and Polzin, Bryant, and Jansen, Andrew, and Paulson, Noah H.. \"Dataset of NMC battery Tests from CAMP, 2023 Release.\" Materials Data Facility, 2024, DOI: 10.18126/s90e-dq90.",
+    "funding": "Laboratory Directed Research and Development (LDRD) funding from Argonne National Laboratory, provided by the Director, Office of Science, of the U.S. Department of Energy under Contract No. DE-AC02-06CH11357. DOE Vehicle Technologies Office (VTO)."
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "Argonne_CAMP",
+      "form_factor": "pouch",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "Gen 2 (1.2M LiPF6 in EC:EMC 3:7 wt%) with various additives",
+      "separator": "",
+      "nominal_capacity_ah": 0.3,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Prototype single-layer pouch cells manufactured at the CAMP (Cell Analysis, Modeling, and Prototyping) Facility at Argonne National Laboratory. Target capacities per Table S1: 0.1, 0.3, or 0.4 Ah depending on cell group (most groups target 0.3 Ah). Six cathode chemistries across 37 cell groups: NMC111 (LiNi0.33Mn0.33Co0.33O2), NMC523 (LiNi0.5Mn0.3Co0.2O2), NMC622 (LiNi0.6Mn0.2Co0.2O2), NMC811 (LiNi0.8Mn0.1Co0.1O2), HE5050 (0.5Li2MnO3-0.5LiNi0.375Mn0.375Co0.25O2), and 5Vspinel (LiNi0.5Mn1.5O4). All graphite anodes (Conoco-Phillips A12/CGP-A12, Gelon, or Hitachi MAGE/MAGE3). Base electrolyte is Gen 2 (1.2M LiPF6 in EC:EMC 3:7 wt%) with various additives (VC, FEC, LiBOB, LiDFOB, LiTFSI, TMSPi, PES, etc.). 37 cell groups spanning 12 years of CAMP production."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "custom",
+      "num_cell_types": 6,
+      "num_cells_total": 602,
+      "replicate_cells_min": null,
+      "replicate_cells_max": null,
+      "num_unique_conditions": 37,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "Dataset contains 300 cells meeting acceptance criteria (graphite anode, charge rate <=1C, >=100 cycles) used in the Paulson et al. ML study, plus 302 additional cells that failed acceptance criteria. Cells represent over 40 different pouch cell builds from 12 years of CAMP production covering a broad range of cathode compositions, electrolyte additives, electrode designs, and formation protocols."
+    },
+    "electrical": {
+      "cycling_range_basis": "per_cell",
+      "cycling_ranges": [],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.2,
+        0.25,
+        0.33,
+        0.5,
+        1.0
+      ],
+      "discharge_crates": [
+        0.2,
+        0.25,
+        0.33,
+        0.5,
+        1.0,
+        2.0
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "",
+      "thermal_management": ""
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 2000,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": true,
+      "test_equipment": "MACCOR",
+      "notes": "Cells tested for at least 100 cycles; cycle lives range from ~100 to over 2000 cycles. Temperature measurements were not uniformly available across the dataset. Data collected over a decade at the CAMP Facility."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge",
+        "energy_charge",
+        "energy_discharge"
+      ],
+      "file_formats": [
+        "hdf5"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "Each cell stored in HDF5 format using Argonne's Battery Data Toolkit v0.4.0. Includes battery metadata, raw signal from testing equipment, and per-cycle summaries. Non-standard cycles (with pauses or HPPC interruptions) were removed from the cycle life data. In a few cases charge and discharge capacities differed by more than 5%.",
+      "known_issues": "Temperature measurements were not uniformly available across the dataset. 302 cells failed acceptance criteria (may have non-graphite anode components, charge rates >1C, or <100 cycles)."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "resistance_dc",
+        "ocv_curve",
+        "ica",
+        "dva"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "coulombic_efficiency",
+        "resistance_dc",
+        "ocv_curve",
+        "soh",
+        "dq_dv",
+        "dv_dq"
+      ],
+      "interval": {
+        "value": 1,
+        "unit": "cycles"
+      },
+      "temperature_c": [],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": "Per-cycle summaries include: median current, average voltage, cumulative capacity and energy, coulombic efficiency, energy efficiency, normalized current, SOH (capacity fraction of initial), charge/discharge times, constant-voltage time, time-voltage interval features, voltage at start/end of segments, voltage derivatives, OCV at specified SOC (from equivalent circuit model), resistance at specified SOC (from ECM fit), SOC at specified voltage, dQ/dV peaks and valleys, dV/dQ peaks and valleys, SOC-related features, and multi-cycle statistical features (median y0, slope y100m0, curvature ydiff)."
+    }
+  },
+  "notes": "This dataset is associated with the paper: Paulson et al., 'Feature engineering for machine learning enabled early prediction of battery lifetime', Journal of Power Sources 527 (2022) 231127, DOI: 10.1016/j.jpowsour.2022.231127. The dataset (2023 Release, published 2024) contains all 300 cells from the study plus 302 additional cells. The 300-cell subset was selected for having graphite anodes, charge rates <=1C, and >=100 tested cycles, spanning six NMC-family cathode chemistries. Cells were manufactured using pilot-scale semi-automated equipment in a dry room at the CAMP Facility. The dataset covers a broad range of experimental conditions including different electrolyte compositions, electrode designs, and formation protocols, intentionally designed to include diverse failure mechanisms beyond Li-plating."
+}

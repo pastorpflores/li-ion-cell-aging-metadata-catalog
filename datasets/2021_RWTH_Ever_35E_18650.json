@@ -1,0 +1,156 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Timeseries data of a drive cycle aging test of 28 high energy NCA/C+Si round cells of type 18650",
+    "short_name": "2021_RWTH_Ever_35E_18650",
+    "year": 2021,
+    "paper_url": "https://publications.rwth-aachen.de/record/815749",
+    "data_url": "https://publications.rwth-aachen.de/record/815749/files/TimeSeriesData.zip",
+    "license": "CC-BY-4.0",
+    "institution": "RWTH Aachen ISEA",
+    "country": "DE",
+    "authors": [
+      "Jöst, Dominik",
+      "Ringbeck, Florian",
+      "Blömeke, Alexander",
+      "Sauer, Dirk Uwe"
+    ],
+    "contact_email": "",
+    "citation": "Jöst, D.; Ringbeck, F.; Blömeke, A.; Sauer, D.U. (2021). Timeseries data of a drive cycle aging test of 28 high energy NCA/C+Si round cells of type 18650. DOI: 10.18154/RWTH-2021-02814",
+    "funding": "European Union Horizon 2020, EVERLASTING grant 713771"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "Samsung INR18650-35E",
+      "manufacturer": "Samsung_SDI",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NCA",
+      "anode_chemistry": "silicon_graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 3.4,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Two cell batches: 20 cells starting 09/2018 (Cell 1-20), 8 cells starting 03/2019 (Cell 22-29). Cells bought in June 2018."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_drive_cycle"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "unknown",
+      "num_cell_types": 1,
+      "num_cells_total": 28,
+      "replicate_cells_min": null,
+      "replicate_cells_max": null,
+      "num_unique_conditions": 1,
+      "eol_criteria": "",
+      "eol_threshold_pct": null,
+      "notes": "All 28 cells aged at the same single condition. Cells were piecewise removed from the test for further examination."
+    },
+    "electrical": {
+      "cycling_range_basis": "soc",
+      "cycling_ranges": [
+        "10-90"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        80
+      ],
+      "charge_crates": [
+        0.3
+      ],
+      "discharge_crates": ["N/A"],
+      "cv_cutoff_current_c": [
+        0.02
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "drive_cycle"
+      ],
+      "drive_cycle_profiles": [
+        "custom_recorded"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": true,
+      "test_equipment": "Digatron MCFT 20-5-60 ME",
+      "notes": "Two longer downtime phases due to equipment defects; cells stored at various SOCs at 25 °C during downtimes. After December 2020, some temperature measurements failed logging. Drive cycle repeated until 80% SOC discharged or voltage < 2.67 V with current < 1C. Average discharge power 4.85 W (~0.4 C at nominal voltage). CC charge at 1.02 A (0.3 C) to 4.05 V, CV cutoff at 0.068 A (0.02 C)."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "temperature_cell"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "Data corrected: false current readings between 4.2–4.8 A (set to 0) during drive cycle direction switching; voltage outliers outside 2.4–4.4 V set to NaN; current outliers >10.5 A set to NaN; temperature outliers outside 10–50 °C set to NaN.",
+      "known_issues": "Battery tester reproducibly produces false current reading between 4.2 A and 4.8 A instead of 0 A during direction switching. After December 2020, some temperature measurements failed logging."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "pseudo_ocv",
+        "resistance_pulse"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "ocv_curve",
+        "resistance_dc"
+      ],
+      "interval": {
+        "value": 30,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        25
+      ],
+      "charge_crates": [
+        0.3,
+        0.1
+      ],
+      "soc_levels_pct": [
+        80,
+        50,
+        20
+      ],
+      "notes": "Checkup every 30 cycles: (1) capacity test with 0.3C discharge after CCCV full charge; (2) qOCV test with 0.1C charge and discharge; (3) pulse test with multiple currents at 3 SOCs (80%, 50%, 20%)."
+    }
+  },
+  "notes": "Dataset published under DOI 10.18154/RWTH-2021-02814. Files follow the naming pattern Everlast_35E_0XX (one ZIP per cell, containing a CSV). CSV uses '.' for decimals and ',' as separator; timestamps in format yyyy-MM-dd HH:mm:ss.SSSSSS. Part of the EU Horizon 2020 EVERLASTING project (grant 713771). Temperature chamber: Binder MK 240."
+}

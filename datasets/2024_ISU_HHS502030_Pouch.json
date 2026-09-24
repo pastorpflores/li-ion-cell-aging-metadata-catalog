@@ -1,0 +1,165 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "ISU-ILCC Battery Aging Dataset",
+    "short_name": "2024_ISU_HHS502030_Pouch",
+    "year": 2024,
+    "paper_url": "https://www.sciencedirect.com/science/article/pii/S2666386424001279",
+    "data_url": "https://doi.org/10.25380/iastate.22582234",
+    "license": "CC-BY-4.0",
+    "institution": "University of Connecticut; Iowa State University; University of Oxford; Iowa Lakes Community College",
+    "country": "US",
+    "authors": [
+      "Tingkai Li",
+      "Zihao Zhou",
+      "Adam Thelen",
+      "David A. Howey",
+      "Chao Hu"
+    ],
+    "contact_email": "chao.hu@uconn.edu",
+    "citation": "Li, T., Zhou, Z., Thelen, A., Howey, D.A., and Hu, C. (2024). Predicting battery lifetime under varying usage conditions from early aging data. Cell Reports Physical Science 5, 101891. https://doi.org/10.1016/j.xcrp.2024.101891",
+    "funding": "Iowa Energy Center grant no. 20-IEC-018; NSF grant no. ECCS-2015710; China Scholarship Council; Department of Engineering Science, University of Oxford"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "502030",
+      "manufacturer": "unknown",
+      "form_factor": "pouch_small",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 0.25,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "502030-size Li-polymer (lithium polymer) pouch cells manufactured by Honghaosheng Electronics in Shenzhen, China. Operating voltage range 3.0-4.2 V. Rated capacity 250 mAh (1C = 250 mA). Half-cells were assembled from these commercial cells."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "neither",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 251,
+      "replicate_cells_min": 4,
+      "replicate_cells_max": 4,
+      "num_unique_conditions": 63,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "Current release contains 238 cells; 13 cells had not completed testing at time of release (Version 2). Four cells cycled per condition to capture cell-to-cell variability. Three stress factors varied: charge C-rate, discharge C-rate, and depth of discharge. Initial conditions selected by grid search (DoD and Cchg, with Cdchg fixed at 0.5 C); later expanded using random sampling across all three factors. Cell lifetimes ranged from 1.5 to 60.9 weeks."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.0-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "charge_crates": [
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "discharge_crates": [
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        30
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "thermal_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Neware BTS4000 (64-channel, two units)",
+      "notes": "Aging tests consisted of 1-week cycling blocks followed by a weekly RPT. Tests repeated until cell capacity fell below 200 mAh (80% of rated capacity). Maximum observed lifetime was approximately 60.9 weeks. Charge/discharge rates and DoD sampled evenly from 0.5-3 C and 25-100% respectively; actual measured DoD ranged from ~4% to ~100% due to voltage hysteresis effects."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_discharge",
+        "capacity_charge"
+      ],
+      "file_formats": [],
+      "data_structure": "hierarchical_folders",
+      "data_size_gb": 10.42,
+      "data_quality_notes": "Q(V) curves from weekly RPTs are the primary data used for feature extraction. Partial DoD cycling data does not allow direct feature extraction from raw cycling data; RPT data used instead.",
+      "known_issues": "Measured DoD values differ from design values due to voltage hysteresis during C/2 discharge used to determine cutoff voltages. Paper reports and discusses actual measured DoD values."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "ica",
+        "dva"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "dq_dv",
+        "dv_dq",
+        "ocv_curve"
+      ],
+      "interval": {
+        "value": 1,
+        "unit": "weeks"
+      },
+      "temperature_c": [
+        30
+      ],
+      "charge_crates": [
+        0.2,
+        0.5
+      ],
+      "soc_levels_pct": [],
+      "notes": "Each weekly RPT consisted of two complete full-DoD cycles at slow rates (C/2 and C/5) to capture cell voltage response while minimizing kinetic effects. An initial RPT was conducted before aging to determine beginning-of-life health. Features extracted from RPT data include incremental capacity (dQ/dV vs. V) and differential voltage (dV/dQ vs. Q) curves."
+    }
+  },
+  "notes": "The ISU-ILCC dataset was collected jointly by Iowa State University (now University of Connecticut REIL lab) and Iowa Lakes Community College. It is designed to study battery capacity fade as a function of charge rate, discharge C-rate, and depth of discharge. The dataset is unique in its large number of cells (251) under a wide variety of conditions (63 unique), enabling machine learning studies of battery lifetime prediction. The paper (Li et al., Cell Reports Physical Science, 2024) introduces degradation-informed features from incremental capacity curves and a hierarchical Bayesian model for early-life prediction. Version 2 of the dataset adds additional folders and a revised readme (December 2023). Code for feature extraction and modeling is available at https://doi.org/10.5281/zenodo.10648587."
+}

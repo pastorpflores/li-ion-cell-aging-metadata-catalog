@@ -1,0 +1,162 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "XJTU Battery Dataset – LISHEN 18650 NCM Cycling to Failure",
+    "short_name": "2024_XJTU_LISHEN_18650",
+    "year": 2024,
+    "paper_url": "https://www.nature.com/articles/s41467-024-48779-z",
+    "data_url": "https://zenodo.org/records/10963339",
+    "license": "CC-BY-4.0",
+    "institution": "Xi'an Jiaotong University",
+    "country": "CN",
+    "authors": [
+      "Fujin Wang",
+      "Zhi Zhai",
+      "Zhibin Zhao",
+      "Yi Di",
+      "Xuefeng Chen"
+    ],
+    "contact_email": "zhaozhibin@xjtu.edu.cn",
+    "citation": "Wang, F., Zhai, Z., Zhao, Z. et al. Physics-informed neural network for lithium-ion battery degradation stable modeling and prognosis. Nat Commun 15, 4332 (2024). https://doi.org/10.1038/s41467-024-48779-z",
+    "funding": "National Natural Science Foundation of China (52105116, 92060302); Fundamental Research Funds for the Central Universities (xzy022023060)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "Lishen",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 2.0,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Chemical composition LiNi0.5Co0.2Mn0.3O2. Charge cut-off 4.2 V, discharge cut-off 2.5 V."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_variable"
+      ],
+      "constant_halfcycle": "charge",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 55,
+      "replicate_cells_min": 8,
+      "replicate_cells_max": 15,
+      "num_unique_conditions": 6,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "6 batches: Batch-1 (8 cells, 2C charge / 1C discharge), Batch-2 (15 cells, 3C charge / 1C discharge), Batch-3 (8 cells, 2C charge / variable discharge {0.5,1,2,3,5}C), Batch-4 (8 cells, 2C charge / variable discharge {0.5,1,2,3,5}C to 3.0V, not fully discharged), Batch-5 (8 cells, random-walk discharge, not fully discharged), Batch-6 (8 cells, GEO satellite charge/discharge simulation). All batches use CC-CV charging. Experiment ran Sep 16 2022 – Feb 18 2023; all cells reached EOL."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.5-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        0.5,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "discharge_crates": [
+        0.2,
+        0.5,
+        0.667,
+        1.0,
+        2.0,
+        3.0,
+        5.0
+      ],
+      "cv_cutoff_current_c": [
+        0.02,
+        0.05
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "variable_load"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        25
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "room_temperature",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 5,
+      "total_cycles_approx": null,
+      "rest_between_halfcycles_min": [
+        5,
+        10,
+        20
+      ],
+      "sampling_rate_hz": 1.0,
+      "sampling_rate_variable": false,
+      "test_equipment": "ACTS-5V10A-GGS-D",
+      "notes": "Experiment started September 16, 2022 and ended February 18, 2023. A few pauses occurred due to power outages; data has been consolidated. Temperature compensation data recorded separately in a dedicated channel (Temperature_Compensation_Data.mat)."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_discharge",
+        "temperature_ambient"
+      ],
+      "file_formats": [
+        "mat"
+      ],
+      "data_structure": "hierarchical_folders",
+      "data_size_gb": 2.4,
+      "data_quality_notes": "Some pauses due to power outages; data publicly released has been consolidated. Temperature compensation data stored separately.",
+      "known_issues": "Occasional power outage interruptions during experiment."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test"
+      ],
+      "recorded_variables": [
+        "capacity_discharge"
+      ],
+      "interval": {
+        "value": null,
+        "unit": "cycles"
+      },
+      "temperature_c": [],
+      "charge_crates": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "soc_levels_pct": [],
+      "notes": "Checkup intervals vary by batch: Batch-4 measures capacity after every cycle (CC-CV 2C to 4.2V, then 1C to 2.5V); Batch-5 measures capacity every 11 cycles (1 capacity measurement + 10 random discharge cycles); Batch-6 measures capacity approximately every 5 cycles (CC-CV 1C to 4.2V, then 0.5C to 2.5V). Batches 1–3 record per-cycle capacity from the main cycling data."
+    }
+  },
+  "notes": "Dataset published alongside the PINN-based SOH estimation paper (Nature Communications 2024). The XJTU dataset is one of four datasets used in the paper; the others (TJU, HUST, MIT) are third-party datasets. Python preprocessing code available at https://github.com/wang-fujin/Battery-dataset-preprocessing-code-library. Summary of papers using this dataset at https://github.com/wang-fujin/XJTU-Battery-Dataset-Papers-Summary."
+}

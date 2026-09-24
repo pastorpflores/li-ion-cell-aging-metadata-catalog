@@ -1,0 +1,159 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Battery test data - fast formation study",
+    "short_name": "2021_MICH_Form_Pouch",
+    "year": 2021,
+    "paper_url": "https://www.cell.com/joule/fulltext/S2542-4351(21)00443-8",
+    "data_url": "https://deepblue.lib.umich.edu/data/concern/data_sets/b2773w109",
+    "license": "CC-BY-NC-4.0",
+    "institution": "University of Michigan",
+    "country": "US",
+    "authors": [
+      "Andrew Weng",
+      "Peyman Mohtat",
+      "Peter M. Attia",
+      "Valentin Sulzer",
+      "Suhak Lee",
+      "Greg Less",
+      "Anna Stefanopoulou"
+    ],
+    "contact_email": "asweng@umich.edu",
+    "citation": "Weng, A., Mohtat, P., Attia, P., Less, G., Lee, S., Stefanopoulou, A. (2021). Battery test data - fast formation study [Data set], University of Michigan - Deep Blue Data. https://doi.org/10.7302/pa3f-4w30",
+    "funding": "National Science Foundation (NSF), grant number 176224; University of Michigan Battery Laboratory"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "unknown",
+      "form_factor": "pouch",
+      "cathode_chemistry": "NMC111",
+      "anode_chemistry": "graphite",
+      "electrolyte": "1.0 M LiPF6 in 3:7 EC:EMC v/v + 2 wt% VC",
+      "separator": "",
+      "nominal_capacity_ah": 2.36,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": 8.13,
+      "specific_energy_wh_kg": 144,
+      "energy_density_wh_l": 365,
+      "mass_g": 56.6,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": 101,
+        "width": 69,
+        "height": 3.2
+      },
+      "datasheet_url": "",
+      "cell_notes": "Custom-built pouch cells assembled at the University of Michigan Battery Laboratory. Cathode: 94:3:3 NMC111 (TODA North America) / C65 / PVDF (Kureha 7208), double-sided loading 34.45 mg/cm2. Anode: 97:0:1.5/1.5 graphite (Hitachi MAG-E3) / CMC / SBR (Zeon BM-451B), double-sided loading 15.7 mg/cm2. 7 cathodes and 8 anodes, z-fold stacked. Total cell mass 56.6 +/- 0.3 g. Gravimetric and volumetric values are stack-level estimates."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "formation_study",
+        "cycling_symmetric"
+      ],
+      "constant_halfcycle": "both",
+      "study_design": "full_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 40,
+      "replicate_cells_min": 9,
+      "replicate_cells_max": 10,
+      "num_unique_conditions": 4,
+      "eol_criteria": "capacity_50pct",
+      "eol_threshold_pct": 50,
+      "notes": "Two formation protocols (fast formation ~14 h; baseline formation ~56 h) crossed with two cycling temperatures (room temperature and 45 deg C), giving 4 groups of ~10 cells each. One cell (baseline formation, 45 deg C group) was excluded due to tab weld issues, reducing that group to 9. EOL for the cycle life test was defined as discharge capacity < 1.18 Ah (50% of 2.36 Ah nominal). The 70% threshold was used as an analysis milestone in the paper but cells were cycled to 50%."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "3.0-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        1.0
+      ],
+      "discharge_crates": [
+        1.0
+      ],
+      "cv_cutoff_current_c": [
+        0.004
+      ],
+      "charge_protocol": [
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        24.5,
+        44.2
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": 4,
+      "total_cycles_approx": 600,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Maccor Series 4000 cycler (0-5 V, 10 A, auto-ranging)",
+      "notes": "Total test time varied between 3 to 4 months; total cycles achieved ranged between 400 and 600. Formation cycling also conducted on Maccor Series 4000 (0-5 V, 30 uA - 1 A, auto-ranging). Room temperature group experienced varying ambient temperatures throughout the day (24.5 +/- 0.6 deg C); 45 deg C group held in thermal chamber (Espec) at 44.2 +/- 0.1 deg C."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 2.37,
+      "data_quality_notes": "Raw timeseries files exported via Voltaiq software. Covers formation cycling and aging cycles for all cells. Post-processed output files also included.",
+      "known_issues": "One cell (#9, baseline formation group) excluded from study due to tab weld issues."
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "resistance_pulse",
+        "hppc",
+        "pseudo_ocv"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "capacity_charge",
+        "resistance_dc",
+        "ocv_curve"
+      ],
+      "interval": {
+        "value": 50,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        24.5,
+        44.2
+      ],
+      "charge_crates": [
+        0.333,
+        0.05
+      ],
+      "soc_levels_pct": [],
+      "notes": "RPT inserted every 50 to 100 cycles. RPT consists of: (1) C/3 charge-discharge cycle, (2) C/20 charge-discharge cycle (pseudo-OCV), (3) HPPC sequence to extract 10-s DC resistance (R10s) as a function of SOC. RPT performed at the same temperature as the cycling test."
+    }
+  },
+  "notes": "This dataset investigates the impact of two formation protocols (fast formation ~14 h vs. baseline formation ~56 h) on NMC111/graphite custom pouch cell lifetime. The fast formation protocol charges the cell rapidly to 3.9 V at 1C then cycles between 3.9 and 4.2 V at C/5 before a final C/10 discharge; the baseline protocol uses three C/10 charge-discharge cycles between 3.0 and 4.2 V. All formation was conducted at room temperature. Post-formation, cells were cycle-aged at room temperature or 45 deg C using symmetric 1C/1C cycling (3.0-4.2 V). A key finding is that a low-SOC resistance signal (R_LS, measured at 5% SOC via HPPC) measured immediately after formation is a strong predictor of cycle life. Data and source code are deposited at University of Michigan Deep Blue Data (DOI: 10.7302/pa3f-4w30); source code also available at Zenodo (DOI: 10.5281/zenodo.5525258)."
+}

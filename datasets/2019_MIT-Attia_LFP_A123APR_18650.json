@@ -1,0 +1,176 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Closed-loop optimization of fast-charging protocols for batteries with machine learning",
+    "short_name": "2019_MIT-Attia_LFP_A123APR_18650",
+    "year": 2020,
+    "paper_url": "https://www.nature.com/articles/s41586-020-1994-5",
+    "data_url": "https://data.matr.io/1/projects/5d80e633f405260001c0b60a",
+    "license": "CC-BY-4.0",
+    "institution": "Stanford University; Massachusetts Institute of Technology; Toyota Research Institute; Lawrence Berkeley National Laboratory; SLAC National Accelerator Laboratory",
+    "country": "US",
+    "authors": [
+      "Peter M. Attia",
+      "Aditya Grover",
+      "Norman Jin",
+      "Kristen A. Severson",
+      "Todor M. Markov",
+      "Yang-Hung Liao",
+      "Michael H. Chen",
+      "Bryan Cheong",
+      "Nicholas Perkins",
+      "Zi Yang",
+      "Patrick K. Herring",
+      "Muratahan Aykol",
+      "Stephen J. Harris",
+      "Richard D. Braatz",
+      "Stefano Ermon",
+      "William C. Chueh"
+    ],
+    "contact_email": "braatz@mit.edu",
+    "citation": "Attia, P.M., Grover, A., Jin, N. et al. Closed-loop optimization of fast-charging protocols for batteries with machine learning. Nature 578, 397-402 (2020). https://doi.org/10.1038/s41586-020-1994-5",
+    "funding": "Toyota Research Institute (Accelerated Materials Design and Discovery programme); Thomas V. Jones Stanford Graduate Fellowship; National Science Foundation Graduate Research Fellowship (DGE-114747); Microsoft Research PhD Fellowship; Stanford Data Science Scholarship; SAIC Innovation Center through the Stanford Energy 3.0 industry affiliates programme; US Department of Energy Advanced Battery Materials Research Program; National Science Foundation (ECCS-1542152)"
+  },
+  "cell_info": [
+    {
+      "commercial_name": "APR18650M1A",
+      "manufacturer": "A123",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "LFP",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 1.1,
+      "nominal_voltage_v": 3.3,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Packing date 2015-09-26, lot number EL1508007-R. Graphite anode electrode 40 um thick; LFP cathode electrode 80 um thick (from X-ray tomography). Manufacturer recommended fast-charging protocol is 3.6C (3.96 A) CC-CV. Upper and lower cutoff voltages are 3.6 V and 2.0 V respectively."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_fast_charging"
+      ],
+      "constant_halfcycle": "discharge",
+      "study_design": "custom",
+      "num_cell_types": 1,
+      "num_cells_total": 240,
+      "replicate_cells_min": 1,
+      "replicate_cells_max": 5,
+      "num_unique_conditions": 224,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "224 unique six-step, 10-minute fast-charging protocols in CC1-CC2-CC3-CC4 format covering 0-80% SOC. Dataset organized in 5 batches of ~48 cells each: 4 CLO batches (oed_0 through oed_3, cycled 100-120 cycles) and 1 validation batch (batch9, cycled to failure). A separate training set of 41 batteries cycled to failure was used for early-outcome predictor development. EOL defined as discharge capacity falling below 80% of nominal (0.88 Ah). Four CLO rounds were run sequentially (4 days per round, 48 parallel experiments). A total of 192 batteries were tested in the CLO budget plus 45 validation batteries. Note: dataset updated 2021-06-16 to correct minor glitches in test time during data export."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.0-3.6"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [
+        3.6,
+        4.0,
+        4.4,
+        4.8,
+        5.2,
+        5.6,
+        6.0,
+        7.0,
+        8.0
+      ],
+      "discharge_crates": [
+        4.0
+      ],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "MCC",
+        "CC-CV"
+      ],
+      "discharge_protocol": [
+        "CC"
+      ],
+      "drive_cycle_profiles": []
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        30
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "forced_air"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 1500,
+      "rest_between_halfcycles_min": [
+        0.083,
+        0.083
+      ],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "48-channel Arbin LBT potentiostat; Amerex Instruments forced convection temperature chamber",
+      "notes": "CLO experiment completed in 16 days (4 rounds x 4 days per round, 48 parallel cells). Each cycle consists of charging, discharging, and resting; estimated at ~1 hour per cycle. Five-second rest between charge and discharge half-cycles. Cells in CLO batches ran 100-120 cycles. Validation cells ran to failure (cycle life ~500-900+ cycles depending on protocol)."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge",
+        "temperature_surface",
+        "energy_charge",
+        "energy_discharge"
+      ],
+      "file_formats": [
+        "mat",
+        "csv"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": null,
+      "data_quality_notes": "Temperature measurements only available for validation batch (batch9). Temperature measured via Type T thermocouple with thermal epoxy and Kapton tape on exposed cell can; contact may vary substantially. MATLAB struct per batch loadable in MATLAB or Python (h5py); raw data also available as CSV per cell.",
+      "known_issues": "Four experiments did not reach 100 cycles due to contact issues (channels 17 and 27 in oed_0; channels 4 and 5 in oed_1). One protocol per round not selected due to processing error (49th-highest protocol selected instead of top-48). Three tests returned anomalous early predictions and were excluded (channel 12 in oed_0; channel 12 in oed_2; channel 6 in oed_3). One test in validation returned anomalous prediction and was excluded (channel 12, 3.6C-6.0C-5.6C-4.755C)."
+    },
+    "checkup": {
+      "types": [
+        "resistance_pulse",
+        "capacity_test"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "resistance_dc"
+      ],
+      "interval": {
+        "value": 1,
+        "unit": "cycles"
+      },
+      "temperature_c": [
+        30
+      ],
+      "charge_crates": [
+        3.6
+      ],
+      "soc_levels_pct": [
+        80
+      ],
+      "notes": "Internal resistance measured during charging at 80% SOC by averaging 10 pulses of +/-3.6C with a pulse width of 33 ms. After fast-charge cycling, all cells recharged from 80% to 100% SOC with a 1C CC-CV step to 3.6 V (C/20 cutoff), then discharged at 4C CC-CV to 2.0 V (C/20 cutoff). Discharge capacity recorded each cycle."
+    }
+  },
+  "notes": "This dataset supports the closed-loop optimization (CLO) paper combining Bayesian optimization with early cycle-life prediction (elastic net regression on first 100 cycles) to efficiently identify high-cycle-life fast-charging protocols among 224 candidates. The dataset is closely related to the Severson et al. 2019 (Nat. Energy) dataset which provided the 41-cell training set for the early predictor. Cycle life is defined as the number of cycles until discharge capacity falls below 80% of nominal (0.88 Ah). The charging protocols are multi-step constant-current (MCC) with 5 steps: CC1 (0-20% SOC), CC2 (20-40% SOC), CC3 (40-60% SOC), CC4 (60-80% SOC, derived from constraint that total 0-80% SOC charge time = 10 min), followed by 1C CC-CV from 80% to 100% SOC. All cells discharge at 4C. Upper cutoff voltage for all steps is 3.6 V."
+}

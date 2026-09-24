@@ -1,0 +1,153 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "2026-02-22",
+  "dataset_metadata": {
+    "name": "Lithium-Ion Battery Cell Degradation Data Set (TUB LG HE4 18650)",
+    "short_name": "2023_TUB_LG-HE4_18650",
+    "year": 2023,
+    "paper_url": "https://www.mdpi.com/2313-0105/9/7/364",
+    "data_url": "https://depositonce.tu-berlin.de/items/7f5e44ac-7371-4d6e-9015-007beea1ffa1/full",
+    "license": "CC-BY-4.0",
+    "institution": "Technische Universitat Berlin",
+    "country": "DE",
+    "authors": [
+      "Steven Neupert",
+      "Julia Kowal"
+    ],
+    "contact_email": "s.neupert@tu-berlin.de",
+    "citation": "Neupert, S.; Kowal, J. Model-Based State-of-Charge and State-of-Health Estimation Algorithms Utilizing a New Free Lithium-Ion Battery Cell Dataset for Benchmarking Purposes. Batteries 2023, 9, 364. https://doi.org/10.3390/batteries9070364",
+    "funding": "This research received no external funding."
+  },
+  "cell_info": [
+    {
+      "commercial_name": "LG HE4",
+      "manufacturer": "LG_Chem",
+      "form_factor": "cylindrical_18650",
+      "cathode_chemistry": "NMC",
+      "anode_chemistry": "graphite",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": 2.5,
+      "nominal_voltage_v": 3.6,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": "Final discharge voltage 2.5 V; charging end voltage 4.2 V; maximum constant discharge current 20 A; maximum charging current 4 A."
+    }
+  ],
+  "aging_matrix": {
+    "has_rawdata": true,
+    "has_checkup": true,
+    "aging_modes": {
+      "types": [
+        "cycling_symmetric",
+        "cycling_drive_cycle"
+      ],
+      "constant_halfcycle": "both",
+      "study_design": "partial_factorial",
+      "num_cell_types": 1,
+      "num_cells_total": 30,
+      "replicate_cells_min": 2,
+      "replicate_cells_max": 4,
+      "num_unique_conditions": 9,
+      "eol_criteria": "capacity_80pct",
+      "eol_threshold_pct": 80,
+      "notes": "28 cells aged with constant current (CC) cycling; 2 cells aged with a dynamic profile derived from FUDS using the Random Pulse Method at 23 degC, DOD 100%, mean SOC 50%. Aging is described as hybrid (no strict differentiation between calendar and cycle aging). Check-up temperature equals aging temperature."
+    },
+    "electrical": {
+      "cycling_range_basis": "voltage",
+      "cycling_ranges": [
+        "2.5-4.2"
+      ],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [
+        30,
+        70,
+        100
+      ],
+      "charge_crates": [],
+      "discharge_crates": [],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [
+        "CC"
+      ],
+      "discharge_protocol": [
+        "CC",
+        "drive_cycle"
+      ],
+      "drive_cycle_profiles": [
+        "FUDS"
+      ]
+    },
+    "thermal": {
+      "temperature_cycling_c": [
+        23,
+        25,
+        45
+      ],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "climate_chamber",
+      "thermal_management": "none"
+    },
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "total_cycles_approx": 1200,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "Neware battery cycler (10 V, +/-10 A); Memmert oven (45 degC); Binder temperature chamber (25 degC)",
+      "notes": "Capacity check every 10 full-cycle equivalents (FCE); irregular full check-up. Relaxation during HPPC pulses sampled at 0.1 s (10 Hz). Dynamic aging data resampled at 1 s for algorithm validation. Worst-case degradation reaches ~1200 FCE per Figure 11."
+    },
+    "rawdata": {
+      "recorded_variables": [
+        "voltage",
+        "current",
+        "capacity_charge",
+        "capacity_discharge"
+      ],
+      "file_formats": [
+        "neware"
+      ],
+      "data_structure": "single_file_per_cell",
+      "data_size_gb": 3.15,
+      "data_quality_notes": "",
+      "known_issues": ""
+    },
+    "checkup": {
+      "types": [
+        "capacity_test",
+        "ocv_curve",
+        "hppc",
+        "resistance_pulse"
+      ],
+      "recorded_variables": [
+        "capacity_discharge",
+        "ocv_curve",
+        "resistance_dc"
+      ],
+      "interval": {
+        "value": 10,
+        "unit": "efc"
+      },
+      "temperature_c": [
+        23,
+        25,
+        45
+      ],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": "Two tiers: (1) capacity check every 10 FCE; (2) irregular full characterization consisting of 1C capacity test, incremental OCV measurement (hybrid phase), and HPPC pulse tests at different SOCs (every 10% SOC). Check-up performed at cell's specific aging temperature. Dynamically aged cells also include a validation extension with dynamic discharges and CCCV charging."
+    }
+  },
+  "notes": "The mean SOC conditions used were 35%, 50%, and 65%. Combined with DOD values of 30%, 70%, and 100%, the cycling SOC windows are: SOC 20-50% (DOD 30%, mean SOC 35%), SOC 50-80% (DOD 30%, mean SOC 65%), SOC 35-65% (DOD 30%, mean SOC 50%), SOC 15-85% (DOD 70%, mean SOC 50%), and SOC 0-100% (DOD 100%, mean SOC 50%). Cell filenames encode stress factors (e.g. HE4C01B02_T25_S000_100). Data published on DepositOnce TU Berlin repository (DOI: 10.14279/depositonce-17598). The dataset is designed for benchmarking SOC and SOH estimation algorithms and includes dynamically aged cells for validation of state estimation over full battery life."
+}
