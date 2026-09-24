@@ -1,0 +1,156 @@
+Table dataset {
+  dataset_id             int      [pk]
+  name                   string   [not null]
+  short_name             string
+  year                   int
+  institution            string
+  country                string   [note: 'ISO 3166-1 alpha-2']
+  license                string
+  paper_url              string
+  data_url               string
+  study_design           string   [note: 'full_factorial | partial_factorial | ofat | d_optimal | latin_hypercube | bayesian_adaptive | custom']
+  num_cells_total        int
+  num_unique_conditions  int
+  has_rawdata            boolean  [not null, default: false]
+  has_checkup            boolean  [not null, default: false]
+  data_size_gb           float
+  catalog_meta           jsonb    [note: 'authors, citation, funding, contact_email, aging_modes.types, eol_criteria, eol_threshold_pct, test_equipment, sampling_rate_hz, total_cycles_approx, test_duration_months_approx, checkup.types, checkup.recorded_variables, checkup.interval, rawdata.recorded_variables, rawdata.file_formats, rawdata.data_structure, data_quality_notes, known_issues, notes']
+}
+
+Table cell_model {
+  cell_model_id          int          [pk]
+  brand                  string       [not null, note: 'maps to cell_info.manufacturer']
+  commercial_name        string       [not null]
+  capacity               float        [not null, note: 'nominal_capacity_ah [Ah]']
+  chemistry              cathode_type [not null, note: 'maps to cell_info.cathode_chemistry']
+  anode                  anode_type   [note: 'maps to cell_info.anode_chemistry']
+  format                 format_type  [not null, note: 'coarse format; use size for size designation']
+  size                   string       [not null, note: "e.g. '18650', '21700', '26650', '4680', 'custom'"]
+  nominal_voltage_v      float
+  nominal_energy_wh      float
+  specific_energy_wh_kg  float
+  energy_density_wh_l    float
+  mass_g                 float
+  diameter_mm            float        [note: 'cylindrical cells']
+  length_mm              float        [note: 'cylindrical cells']
+  width_mm               float        [note: 'pouch / prismatic cells']
+  height_mm              float        [note: 'pouch / prismatic cells']
+  electrolyte            string
+  separator              string
+  datasheet_url          string
+}
+
+Table cell {
+  cell_id                 int    [pk]
+  cell_model_id           int    [not null, ref: > cell_model.cell_model_id]
+  dataset_id              int    [not null, ref: > dataset.dataset_id]
+  serial_number           string [not null]
+  experimental_conditions jsonb  [not null, note: 'aging_type (array), temperature, dod, soc_mean, c_rate_chg, c_rate_dch, cycling_range, storage_level, cv_cutoff_current_c, charge_protocol, discharge_protocol, drive_cycle_profile, ambient_control, total_efc, total_ah, total_exp_days, total_cyc_days']
+}
+
+// RPT / CHARACTERIZATION BRANCH
+
+Table checkup {
+  cu_id         int        [pk]
+  cell_id       int        [pk, not null, ref: > cell.cell_id]
+  date          timestamp  [not null]
+  section_type  aging_type [not null]
+  origin_id     string     [not null]
+  aging_context jsonb      [not null, note: 'all: start_date, end_date, temperature_c | cycling/dynamic: ah_throughput, efc, mean_soc, mean_c_rate_chg, mean_c_rate_dch, mean_dod, cycling_time, rest_time, soh | rpt: temperature_c, charge_crates, soc_levels_pct, soh | calendar/storage: ah_throughput_cumulative, efc_cumulative, soh']
+}
+
+Table checkup_step {
+  cu_step_id int       [pk]
+  cu_id          int       [not null, ref: > checkup.cu_id]
+  cell_id        int       [not null, ref: > cell.cell_id]
+  origin_step_id int       [not null]
+  step_type      step_type [not null]
+  hi_features    jsonb     [not null]
+}
+
+Table checkup_rawdata {
+  time     int   [pk]
+  cu_step_id  int   [pk, not null, ref: > checkup_step.cu_step_id]
+  voltage        float [not null]
+  current        float [not null]
+  temperature    float
+  capacity_step  float [not null]
+  soc            float [not null]
+}
+
+// CYCLING TIMESERIES BRANCH
+
+Table cycle {
+  cycle_id      int       [pk]
+  cell_id       int       [pk, not null, ref: > cell.cell_id]
+  date          timestamp [not null]
+  origin_id     string    [not null]
+  aging_context jsonb     [not null, note: 'Per-cycle conditions for variable-protocol datasets: temperature_c, c_rate_chg, c_rate_dch, soc_min, soc_max, dod, drive_cycle_profile']
+}
+
+Table cycle_step {
+  cycle_step_id  int       [pk]
+  cycle_id       int       [not null, ref: > cycle.cycle_id]
+  cell_id        int       [not null, ref: > cell.cell_id]
+  step_number    int       [not null, note: 'Sequential index within cycle (1, 2, 3...)']
+  step_type      step_type [not null, note: 'Shared enum with checkup_step']
+  hi_features    jsonb     [not null, note: 'Step-level derived features: capacity, energy, duration, delta_v, coulombic_efficiency']
+}
+
+Table cycle_rawdata {
+  time           int   [pk]
+  cycle_step_id  int   [pk, not null, ref: > cycle_step.cycle_step_id]
+  voltage        float [not null]
+  current        float [not null]
+  temperature    float
+  capacity_step  float [not null]
+  soc            float [not null]
+}
+
+Enum aging_type {
+  storage   [note: 'Cell stored without cycling; temperature probably not controlled']
+  calendar  [note: 'Controlled-temperature storage aging']
+  cycling   [note: 'Periodic charge-discharge aging']
+  dynamic   [note: 'Application profile or dynamic current profile aging']
+}
+
+Enum cathode_type {
+  NMC      [note: 'Nickel Manganese Cobalt (all ratios)']
+  NCA      [note: 'Nickel Cobalt Aluminum']
+  LFP      [note: 'Lithium Iron Phosphate']
+  LCO      [note: 'Lithium Cobalt Oxide']
+  LMO      [note: 'Lithium Manganese Oxide']
+  NMC_LCO  [note: 'NMC/LCO blend']
+  unknown
+  custom   [note: 'Chemistry present but not listed']
+}
+
+Enum anode_type {
+  graphite
+  graphite_silicon        [note: 'Graphite + Si blend']
+  graphite_silicon_oxide  [note: 'Graphite + SiOx']
+  lto                     [note: 'Lithium titanate (Li4Ti5O12)']
+  unknown
+  custom
+}
+
+Enum format_type {
+  cylindrical
+  pouch
+  prismatic
+  coin
+  blade
+}
+
+Enum step_type {
+  pause
+  dch_cc
+  chg_cc
+  chg_cv
+  dch_cv
+  dch_cp
+  chg_cp
+  relax_post_chg
+  relax_post_dch
+  dch_drive_cycle  [note: 'Discharge with application drive-cycle profile']
+}

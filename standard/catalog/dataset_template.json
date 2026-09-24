@@ -1,0 +1,483 @@
+{
+  "_schema_version": "2.0",
+  "_last_updated": "",
+
+  "dataset_metadata": {
+    "name": "",
+    "short_name": "",
+    "year": null,
+    "paper_url": "",
+    "data_url": "",
+    "license": "",
+    "institution": "",
+    "country": "",
+    "authors": [],
+    "contact_email": "",
+    "citation": "",
+    "funding": ""
+  },
+
+  "cell_info": [
+    {
+      "commercial_name": "",
+      "manufacturer": "",
+      "form_factor": "",
+      "cathode_chemistry": "",
+      "anode_chemistry": "",
+      "electrolyte": "",
+      "separator": "",
+      "nominal_capacity_ah": null,
+      "nominal_voltage_v": null,
+      "nominal_energy_wh": null,
+      "specific_energy_wh_kg": null,
+      "energy_density_wh_l": null,
+      "mass_g": null,
+      "dimensions_mm": {
+        "diameter": null,
+        "length": null,
+        "width": null,
+        "height": null
+      },
+      "datasheet_url": "",
+      "cell_notes": ""
+    }
+  ],
+
+  "aging_matrix": {
+
+    "has_rawdata": false,
+    "has_checkup": false,
+
+    "aging_modes": {
+      "types": [],
+      "constant_halfcycle": "",
+      "study_design": "",
+      "num_cell_types": null,
+      "num_cells_total": null,
+      "replicate_cells_min": null,
+      "replicate_cells_max": null,
+      "num_unique_conditions": null,
+      "eol_criteria": "",
+      "eol_threshold_pct": null,
+      "notes": ""
+    },
+
+    "electrical": {
+      "cycling_range_basis": "",
+      "cycling_ranges": [],
+      "storage_level_basis": "",
+      "storage_levels": [],
+      "dod_pct": [],
+      "charge_crates": [],
+      "discharge_crates": [],
+      "cv_cutoff_current_c": [],
+      "charge_protocol": [],
+      "discharge_protocol": [],
+      "drive_cycle_profiles": []
+    },
+
+    "thermal": {
+      "temperature_cycling_c": [],
+      "temperature_storage_c": [],
+      "temperature_range_c": [],
+      "ambient_control": "",
+      "thermal_management": ""
+    },
+
+    "time_protocol": {
+      "test_duration_months_approx": null,
+      "test_duration_cycles_approx": null,
+      "rest_between_halfcycles_min": [],
+      "sampling_rate_hz": null,
+      "sampling_rate_variable": false,
+      "test_equipment": "",
+      "notes": ""
+    },
+
+    "rawdata": {
+      "recorded_variables": [],
+      "file_formats": [],
+      "data_structure": "",
+      "data_size_gb": null,
+      "data_quality_notes": "",
+      "known_issues": ""
+    },
+
+    "checkup": {
+      "types": [],
+      "recorded_variables": [],
+      "interval": {
+        "value": null,
+        "unit": ""
+      },
+      "temperature_c": [],
+      "charge_crates": [],
+      "soc_levels_pct": [],
+      "notes": ""
+    }
+
+  },
+
+  "notes": "",
+
+  "_controlled_vocabularies": {
+    "_description": "Reference section for standardized values. Remove this section from final dataset files.",
+
+    "aging_modes_types": [
+      "calendar",
+      "cycling_symmetric",
+      "cycling_fast_charging",
+      "cycling_drive_cycle",
+      "cycling_variable",
+      "mixed_cycling_calendar",
+      "formation_study",
+      "custom"
+    ],
+
+    "constant_halfcycle": [
+      "charge",
+      "discharge",
+      "both",
+      "neither",
+      "not_applicable"
+    ],
+
+    "study_design": [
+      "full_factorial",
+      "partial_factorial",
+      "d_optimal",
+      "one_factor_at_a_time",
+      "sequential",
+      "custom",
+      "unknown"
+    ],
+
+    "eol_criteria": [
+      "capacity_80pct",
+      "capacity_70pct",
+      "capacity_60pct",
+      "capacity_custom",
+      "resistance_200pct",
+      "resistance_150pct",
+      "resistance_custom",
+      "failure",
+      "none_ongoing",
+      "custom"
+    ],
+
+    "cycling_range_basis": [
+      "voltage",
+      "soc"
+    ],
+
+    "storage_level_basis": [
+      "voltage",
+      "soc"
+    ],
+
+    "charge_protocol": [
+      "CC",
+      "CC-CV",
+      "MCC",
+      "MSCC",
+      "pulse_charging",
+      "step_charging",
+      "custom"
+    ],
+
+    "discharge_protocol": [
+      "CC",
+      "CP",
+      "drive_cycle",
+      "pulsed",
+      "variable_load",
+      "custom"
+    ],
+
+    "drive_cycle_profiles": [
+      "UDDS",
+      "FUDS",
+      "HWFET",
+      "US06",
+      "WLTC_class1",
+      "WLTC_class2",
+      "WLTC_class3b",
+      "NEDC",
+      "Artemis_urban",
+      "Artemis_road",
+      "Artemis_motorway",
+      "JC08",
+      "CLTC",
+      "LA92",
+      "custom_synthetic",
+      "custom_recorded"
+    ],
+
+    "ambient_control": [
+      "climate_chamber",
+      "thermal_chamber",
+      "oil_bath",
+      "water_bath",
+      "convection_oven",
+      "room_temperature",
+      "uncontrolled",
+      "custom"
+    ],
+
+    "thermal_management": [
+      "none",
+      "passive_air",
+      "forced_air",
+      "liquid_cooling",
+      "immersion",
+      "custom"
+    ],
+
+    "rawdata_recorded_variables": [
+      "voltage",
+      "current",
+      "temperature_cell",
+      "temperature_surface",
+      "temperature_ambient",
+      "capacity_charge",
+      "capacity_discharge",
+      "energy_charge",
+      "energy_discharge",
+      "power",
+      "soc",
+      "custom"
+    ],
+
+    "checkup_types": [
+      "capacity_test",
+      "resistance_dc",
+      "resistance_pulse",
+      "hppc",
+      "eis",
+      "ocv_curve",
+      "pseudo_ocv",
+      "gitt",
+      "ica",
+      "dva",
+      "custom"
+    ],
+
+    "checkup_recorded_variables": [
+      "capacity_discharge",
+      "capacity_charge",
+      "coulombic_efficiency",
+      "resistance_dc",
+      "impedance_ac",
+      "eis_nyquist",
+      "ocv_curve",
+      "dq_dv",
+      "dv_dq",
+      "soh",
+      "custom"
+    ],
+
+    "checkup_interval_unit": [
+      "cycles",
+      "efc",
+      "days",
+      "weeks",
+      "months"
+    ],
+
+    "file_formats": [
+      "csv",
+      "tsv",
+      "xlsx",
+      "xls",
+      "mat",
+      "hdf5",
+      "h5",
+      "parquet",
+      "json",
+      "txt",
+      "arbin",
+      "biologic",
+      "maccor",
+      "basytec",
+      "neware",
+      "digatron",
+      "custom"
+    ],
+
+    "data_structure": [
+      "single_file_per_cell",
+      "single_file_per_cycle",
+      "single_file_per_test",
+      "hierarchical_folders",
+      "flat_files",
+      "database",
+      "mixed"
+    ],
+
+    "form_factor": [
+      "cylindrical_10440",
+      "cylindrical_14500",
+      "cylindrical_18650",
+      "cylindrical_20700",
+      "cylindrical_21700",
+      "cylindrical_26650",
+      "cylindrical_32650",
+      "cylindrical_4680",
+      "cylindrical_other",
+      "pouch",
+      "pouch_small",
+      "pouch_large",
+      "prismatic",
+      "prismatic_small",
+      "prismatic_large",
+      "coin_CR2032",
+      "coin_CR2025",
+      "coin_CR2016",
+      "coin_other",
+      "custom",
+      "unknown"
+    ],
+
+    "cathode_chemistry": [
+      "LCO",
+      "LMO",
+      "LFP",
+      "NCA",
+      "NMC",
+      "NMC111",
+      "NMC424",
+      "NMC532",
+      "NMC622",
+      "NMC811",
+      "NMC955",
+      "LNMO",
+      "LMR-NMC",
+      "LMFP",
+      "LNO",
+      "LRLO",
+      "sodium_ion",
+      "sulfur",
+      "blend_NMC_LMO",
+      "blend_NCA_LCO",
+      "blend_other",
+      "custom",
+      "unknown"
+    ],
+
+    "anode_chemistry": [
+      "graphite",
+      "graphite_natural",
+      "graphite_synthetic",
+      "graphite_mesocarbon",
+      "hard_carbon",
+      "soft_carbon",
+      "silicon",
+      "silicon_graphite",
+      "silicon_graphite_5pct",
+      "silicon_graphite_10pct",
+      "silicon_graphite_15pct",
+      "silicon_oxide_graphite",
+      "lto",
+      "lithium_metal",
+      "sodium_metal",
+      "niobium_oxide",
+      "tin_based",
+      "custom",
+      "unknown"
+    ],
+
+    "electrolyte": [
+      "carbonate_liquid",
+      "EC_DMC",
+      "EC_DEC",
+      "EC_EMC",
+      "EC_DMC_DEC",
+      "EC_PC",
+      "PC_based",
+      "LiPF6_standard",
+      "LiFSI_based",
+      "LiTFSI_based",
+      "ionic_liquid",
+      "polymer_gel",
+      "solid_state_oxide",
+      "solid_state_sulfide",
+      "solid_state_polymer",
+      "custom",
+      "unknown"
+    ],
+
+    "separator": [
+      "polyethylene",
+      "polypropylene",
+      "PE_PP_PE",
+      "ceramic_coated",
+      "PVDF_coated",
+      "cellulose",
+      "glass_fiber",
+      "solid_electrolyte",
+      "custom",
+      "unknown"
+    ],
+
+    "manufacturer": [
+      "A123",
+      "ATL",
+      "BAK",
+      "BYD",
+      "CALB",
+      "CATL",
+      "Coslight",
+      "E-One_Moli",
+      "Electrovaya",
+      "Envision_AESC",
+      "EVE_Energy",
+      "Farasis",
+      "GAIA",
+      "Gotion",
+      "Kokam",
+      "LG_Chem",
+      "LG_Energy_Solution",
+      "Lishen",
+      "Murata",
+      "Northvolt",
+      "Panasonic",
+      "PEVE",
+      "Samsung_SDI",
+      "Sanyo",
+      "SK_On",
+      "Sony",
+      "Sunwoda",
+      "Toshiba",
+      "Wanxiang",
+      "lab_made",
+      "custom",
+      "unknown"
+    ],
+
+    "license": [
+      "CC0",
+      "CC-BY-4.0",
+      "CC-BY-SA-4.0",
+      "CC-BY-NC-4.0",
+      "CC-BY-NC-SA-4.0",
+      "CC-BY-NC-3.0",
+      "MIT",
+      "Apache-2.0",
+      "GPL-3.0",
+      "ODC-By",
+      "ODC-ODbL",
+      "public_domain",
+      "proprietary",
+      "restricted",
+      "upon_request",
+      "custom",
+      "unknown"
+    ],
+
+    "country": [
+      "AU", "AT", "BE", "CA", "CH", "CN", "DE", "DK",
+      "ES", "FI", "FR", "GB", "IN", "IT", "JP", "KR",
+      "NL", "NO", "PL", "PT", "SE", "SG", "US", "other"
+    ]
+  }
+}

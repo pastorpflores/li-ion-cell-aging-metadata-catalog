@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Aging Context",
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start of cycling/storage section"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End of cycling/storage section"
+    },
+    "ah_throughput": {
+      "type": "integer",
+      "description": "Ampere-hours throughput (Ah) in this section"
+    },
+    "ah_throughput_cumulative": {
+      "type": "number",
+      "description": "Ampere-hours throughput (Ah) since the BOL"
+    },
+    "efc": {
+      "type": "number",
+      "description": "Equivalent full cycles in this section"
+    },
+    "efc_cumulative": {
+      "type": "number",
+      "description": "Cumulative equivalent full cycles since the BOL"
+    },
+    "mean_soc": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Mean state of charge (%)"
+    },
+    "mean_c_rate_chg": {
+      "type": "number",
+      "description": "Mean charge C-rate (no unit)"
+    },
+    "mean_c_rate_dch": {
+      "type": "number",
+      "description": "Mean discharge C-rate (no unit)"
+    },
+    "mean_dod": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Mean depth of discharge (%)"
+    },
+    "cycling_time": {
+      "type": "number",
+      "description": "Total cycling time in this section (hours)"
+    },
+    "rest_time": {
+      "type": "number",
+      "description": "Total rest time in this section (hours)"
+    },
+    "soh": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "State of health (%) calculated with following checkup capacity test"
+    },
+    "temperature_c": {
+      "type": "number",
+      "description": "Temperature during this section (°C)"
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date",
+    "ah_throughput",
+    "ah_throughput_cumulative",
+    "efc",
+    "efc_cumulative",
+    "mean_soc",
+    "mean_c_rate_chg",
+    "mean_c_rate_dch",
+    "mean_dod",
+    "cycling_time",
+    "rest_time",
+    "soh"
+  ],
+  "additionalProperties": false
+}

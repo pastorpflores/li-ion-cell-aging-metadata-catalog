@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Health Indicator Features",
+  "type": "object",
+  "description": "Step-level health-indicator features. Open schema: the properties below are examples; add further features as needed (additionalProperties is true).",
+  "properties": {
+    "capacity_cc_discharge_ah": {
+      "type": "number",
+      "description": "CC-phase discharge capacity only. Unit: Ah.",
+      "unit": "Ah",
+      "source_step": [
+        "dch_cc"
+      ]
+    },
+    "energy_cc_discharge_wh": {
+      "type": "number",
+      "description": "CC-phase discharge energy only. Unit: Wh.",
+      "unit": "Wh",
+      "source_step": [
+        "dch_cc"
+      ]
+    },
+    "ica_peak_voltage_1": {
+      "type": "number",
+      "description": "Voltage at tracked ICA peak 1. Unit: V.",
+      "unit": "V",
+      "source_step": [
+        "dch_cc"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

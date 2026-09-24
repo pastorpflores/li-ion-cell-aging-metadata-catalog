@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "Experimental Conditions",
+  "type": "object",
+  "properties": {
+    "aging_type": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["storage", "calendar", "cycling", "dynamic"]
+      },
+      "minItems": 1,
+      "description": "Type(s) of aging applied"
+    },
+    "temperature": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 1,
+      "description": "Temperature(s) during aging sections (°C)"
+    },
+    "dod": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 1,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Depth of discharge during aging sections (%)"
+    },
+    "soc_mean": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 1,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Mean state of charge during aging sections (%)"
+    },
+    "c_rate_chg": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 1,
+      "description": "Charge C-rate during aging sections (no unit)"
+    },
+    "c_rate_dch": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 1,
+      "description": "Discharge C-rate during aging sections (no unit)"
+    },
+    "soc_max": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 1,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Maximum SOC during cycling (% — derived as soc_mean + dod/2, center-balanced)"
+    },
+    "soc_min": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 1,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Minimum SOC during cycling (% — derived as soc_mean - dod/2, center-balanced)"
+    },
+    "total_efc": {
+      "type": "integer",
+      "description": "Total equivalent full cycles in the experiment"
+    },
+    "total_ah": {
+      "type": "integer",
+      "description": "Total ampere-hours throughput (Ah) in the experiment"
+    },
+    "total_exp_days": {
+      "type": "integer",
+      "description": "Total number of elapsed days of experiment"
+    },
+    "total_cyc_days": {
+      "type": "integer",
+      "description": "Total number of cycling days in the experiment"
+    }
+  },
+  "required": ["aging_type"],
+  "additionalProperties": false
+}
