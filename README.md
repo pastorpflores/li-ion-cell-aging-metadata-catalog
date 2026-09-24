@@ -45,13 +45,9 @@ Categorical fields take values from the controlled vocabularies in the `_control
 
 ## Measurement layer
 
-The database schema has nine tables: three core tables (`dataset`, `cell_model`, `cell`) and two parallel measurement branches from `cell`:
+The database schema has nine tables: three core tables (`dataset`, `cell_model`, `cell`) and two parallel measurement branches from `cell`: `checkup` → `checkup_step` → `checkup_rawdata` for RPT and characterization sections, and `cycle` → `cycle_step` → `cycle_rawdata` for the aging cycle timeseries.
 
-```
-cell
-  ├── checkup  →  checkup_step  →  checkup_rawdata    (RPT and characterization sections)
-  └── cycle    →  cycle_step    →  cycle_rawdata      (aging cycle timeseries)
-```
+![Database schema](standard/database/schema.png)
 
 The `checkup` branch corresponds to the RPT branch described in the paper. See `standard/database/database_doc.md` for the table-by-table description.
 
