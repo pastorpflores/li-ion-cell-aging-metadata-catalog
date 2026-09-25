@@ -60,7 +60,22 @@ The `checkup` branch corresponds to the RPT branch described in the paper. See `
 
 ## Citation
 
-If you use this standard or the catalog, please cite the paper above (DOI to be added on publication).
+If you use this standard or the catalog, please cite it as:
+
+> Pastor-Flores, P. (2026). *Li-ion Cell Aging Metadata Catalog: A Two-Layer Metadata Standard for Li-ion Cell-Level Aging Data*. Zenodo. https://doi.org/10.5281/zenodo.22944873
+
+```bibtex
+@misc{pastorflores2026liioncellaging,
+  title     = {Li-ion Cell Aging Metadata Catalog: A Two-Layer Metadata Standard for Li-ion Cell-Level Aging Data},
+  author    = {Pastor-Flores, Pablo},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.22944873},
+  url       = {https://doi.org/10.5281/zenodo.22944873}
+}
+```
+
+This DOI always resolves to the latest release. The accompanying paper will be added here on publication.
 
 ## License
 
