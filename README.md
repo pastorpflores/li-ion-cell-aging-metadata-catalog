@@ -1,5 +1,7 @@
 # Li-ion Cell Aging Metadata Catalog
 
+[![DOI](https://zenodo.org/badge/1385938567.svg)](https://doi.org/10.5281/zenodo.22944873)
+
 A two-layer metadata standard for describing and storing Li-ion cell-level aging data.
 
 Open aging datasets are released in many file formats, with experimental conditions described in free text and health metrics that cannot be compared across sources. This repository defines a common way to describe and organize them:
@@ -26,8 +28,7 @@ standard/                         The standard
     └── json_schemas/                 JSON schemas for the structured (JSONB) fields
 
 datasets/                         Reference catalog (example application of the standard)
-├── records/                      One catalog record per dataset (<year>_<institution>_<cell>.json)
-└── all_datasets_info.json        All records merged into one file, keyed by record name
+└── <year>_<institution>_<cell>.json  One catalog record per dataset
 ```
 
 ## Catalog layer
@@ -54,7 +55,7 @@ The `checkup` branch corresponds to the RPT branch described in the paper. See `
 ## Adding a dataset
 
 1. Copy `standard/catalog/dataset_template.json` and fill in the fields, using the controlled vocabularies.
-2. Remove the `_controlled_vocabularies` section and save it as `datasets/records/<year>_<institution>_<cell>.json`.
+2. Remove the `_controlled_vocabularies` section and save it as `datasets/<year>_<institution>_<cell>.json`.
 3. Contributions of new records are welcome via pull request.
 
 ## Citation
